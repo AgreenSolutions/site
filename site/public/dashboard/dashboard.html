@@ -1,0 +1,1214 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../css/dash.css" />
+  <link rel="icon" href="../assets/imgs/Agreen_-_White_with_Black.png" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-annotation/2.0.1/chartjs-plugin-annotation.min.js" integrity="sha512-LZEOcU8s74hwWva82MJux7GgFNjfeExXG9yZPQrKz567Od4O2D/6UX3oGoZiRDOdbMtH33NBq7vonH4VOUPA/Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="../js/funcoes.js"></script>
+
+  <title>Dashboard</title>
+</head>
+
+<body onload="atualizacaoPeriodica()">
+  
+
+    <div class="modal-container">
+      <div class="modal">
+        <button onclick="closeModal()" class="fechar">X</button>
+        <div class="kpi">
+          <div class="kpi-1">
+            <div class="kpi-title">
+              Maior Temperatura nos últimos 7 dias
+            </div>
+            <div class="kpi-data">
+              24.7°C
+            </div>
+          </div>
+          <div class="kpi-1">
+            <div class="kpi-title">
+              Maior Umidade nos últimos 7 dias
+            </div>
+            <div class="kpi-data">
+              72%
+            </div>
+          </div>
+          <div class="kpi-1">
+            <div class="kpi-title">
+              Menor Temperatura nos últimos 7 dias
+            </div>
+            <div class="kpi-data">
+              20°C
+            </div>
+          </div>
+          <div class="kpi-1">
+            <div class="kpi-title">
+              Menor Umidade nos últimos 7 dias
+            </div>
+            <div class="kpi-data">
+              64.4%
+            </div>
+          </div>
+          <div class="kpi-1">
+            <div class="kpi-title2">
+              Variação Temperatura ultima 1 Hora
+            </div>
+            <div class="kpi-data">
+              1.4°C
+            </div>
+          </div>
+          <div class="kpi-1">
+            <div class="kpi-title2">
+              Variação Umidade ultima 1 Hora
+            </div>
+            <div class="kpi-data">
+              2%
+            </div>
+          </div>
+        </div>
+        <div class="graficos">
+          <div class="grafico-1">
+            <canvas id="myChart"></canvas>
+          </div>
+          <div class="grafico-2">
+            <canvas id="myChart2"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <div class="modal-container2">
+      <div class="modal2">
+        <button onclick="closeModal2()" class="fechar">X</button>
+        <div class="kpi">
+          <div class="kpi-1">
+           <div class="kpi-title">
+            Maior Temperatura nos últimos 7 dias
+           </div>
+           <div class="kpi-data">
+            3.2°C
+           </div>
+          </div>
+          <div class="kpi-1">
+            <div class="kpi-title">
+              Maior Umidade nos últimos 7 dias
+            </div>
+            <div class="kpi-data">
+              80.3%
+            </div>
+          </div>
+          <div class="kpi-1">
+            <div class="kpi-title">
+              Menor Temperatura nos últimos 7 dias
+            </div>
+            <div class="kpi-data">
+              1.8°C
+            </div>
+          </div>
+          <div class="kpi-1">
+            <div class="kpi-title">
+              Menor Umidade nos últimos 7 dias
+            </div>
+            <div class="kpi-data">
+              73.48%
+            </div>
+          </div>
+          <div class="kpi-1">
+            <div class="kpi-title">
+              Variação Temperatura ultima 1 Hora
+            </div>
+            <div class="kpi-data">
+              0°C
+            </div>
+          </div>
+          <div class="kpi-1">
+            <div class="kpi-title">
+              Variação Umidade ultima 1 Hora
+            </div>
+            <div class="kpi-data">
+              1.3%
+            </div>
+          </div>
+        </div>
+        <div class="graficos2">
+          <div class="grafico-3">
+            <canvas id="myChart3"></canvas>
+          </div>
+          <div class="grafico-4">
+            <canvas id="myChart4"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-container3">
+      <div class="modal3">
+        <button onclick="closeModal3()" class="fechar">X</button>
+        <div class="kpi">
+          <div class="kpi-1">
+            <div class="kpi-title">
+              Maior Temperatura nos últimos 7 dias
+            </div>
+            <div class="kpi-data">
+              23.8°C
+            </div>
+          </div>
+          <div class="kpi-1">
+            <div class="kpi-title">
+              Maior Umidade nos últimos 7 dias
+            </div>
+            <div class="kpi-data">
+              78.48%
+            </div>
+          </div>
+          <div class="kpi-1">
+            <div class="kpi-title">
+              Menor Temperatura nos últimos 7 dias
+            </div>
+            <div class="kpi-data">
+              21.8°C
+            </div>
+          </div>
+          <div class="kpi-1">
+            <div class="kpi-title">
+              Menor Umidade nos últimos 7 dias
+            </div>
+            <div class="kpi-data">
+              71.5%
+            </div>
+          </div>
+          <div class="kpi-1">
+            <div class="kpi-title">
+              Variação Temperatura ultima 1 Hora
+            </div>
+            <div class="kpi-data">
+              1°C
+            </div>
+          </div>
+          <div class="kpi-1">
+            <div class="kpi-title">
+              Variação Umidade ultima 1 Hora
+            </div>
+            <div class="kpi-data">
+              5%
+            </div>
+          </div>
+        </div>
+        <div class="graficos">
+          <div class="grafico-5">
+            <canvas id="myChart5"></canvas>
+          </div>
+          <div class="grafico-6">
+            <canvas id="myChart6"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-container4">
+      <div class="modal4">
+        <button onclick="closeModal4()" class="fechar">X</button>
+        <div class="kpi">
+          <div class="kpi-1">
+            <div class="kpi-title">
+              Maior Temperatura nos últimos 7 dias
+            </div>
+            <div class="kpi-data">
+              2.8°C
+            </div>
+          </div>
+          <div class="kpi-1">
+            <div class="kpi-title">
+              Maior Umidade nos últimos 7 dias
+            </div>
+            <div class="kpi-data">
+              91.3%
+            </div>
+          </div>
+          <div class="kpi-1">
+            <div class="kpi-title">
+              Menor Temperatura nos últimos 7 dias
+            </div>
+            <div class="kpi-data">
+              1.8°C
+            </div>
+          </div>
+          <div class="kpi-1">
+            <div class="kpi-title">
+              Menor Umidade nos últimos 7 dias
+            </div>
+            <div class="kpi-data">
+              79.42%
+            </div>
+          </div>
+          <div class="kpi-1">
+            <div class="kpi-title">
+              Variação Temperatura ultima 1 Hora
+            </div>
+            <div class="kpi-data">
+              0.4°C
+            </div>
+          </div>
+          <div class="kpi-1">
+            <div class="kpi-title">
+              Variação Umidade ultima 1 Hora
+            </div>
+            <div class="kpi-data">
+              2%
+            </div>
+          </div>
+        </div>
+        <div class="graficos">
+          <div class="grafico-7">
+            <canvas id="myChart7"></canvas>
+          </div>
+          <div class="grafico-8">
+            <canvas id="myChart8"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- navbar -->
+
+    <div class="container">
+    <div class="navbar-vert">
+      <navbar class="vert">
+        <figure>
+          <img src="../assets/imgs/Agreen.png" alt="logo" />
+        </figure>
+        <p id="p_usuario">Olá Usuario</p>
+
+        <ul>
+          <li><a href="dashboard.html">Cards</a></li>
+          <li onclick="limparSessao()"><a style="cursor: pointer;">Sair</a></li>
+        </ul>
+      </navbar>
+    </div>
+
+    <div class="conteudo2">
+      <div class="container">
+      </div>
+  </div>
+
+<div class="legenda">
+  <h1>Tipos de Alertas</h1>
+
+  <div class="alertas">
+    <svg height="80" width="60">
+      <circle cx="30" cy="22" r="16" stroke="red" stroke-width="0" fill="red" />
+    </svg>
+    <p>Crítico</p>
+  </div>
+  <div class="alertas">
+    <svg height="80" width="60">
+      <circle cx="30" cy="22" r="16" stroke="red" stroke-width="0" fill="orange" />
+    </svg>
+    <p>Emergência</p>
+  </div>
+  <div class="alertas">
+    <svg height="80" width="60">
+      <circle cx="30" cy="22" r="16" stroke="red" stroke-width="0" fill="yellow" />
+    </svg>
+    <p>Alerta</p>
+  </div>
+  <div class="alertas">
+    <svg height="80" width="60">
+      <circle cx="30" cy="22" r="16" stroke="red" stroke-width="0" fill="green" />
+    </svg>
+    <p>Ideal</p>
+  </div>
+    </div>
+      <div class="header-info">
+      
+     
+        <div class="info" id="info1">
+          <p class="card-analytics-title">Temperatura</p>
+          <div class="data-card1">
+            <p>Mínima</p>
+            <span>-4&deg;</span>
+            <p>Mínima</p>
+            <span>19&deg;</span>
+          </div>
+          
+          <div class="data-card2">
+            <p>Máxima</p>
+            <span>5&deg;</span>
+            <p>Máxima</p>
+            <span>27&deg;</span>
+            <!-- <p class="card-analytics-title2">Gôndola</p> -->
+          </div>
+          <div class="footer-legenda">
+            <span class="card-analytics-title2">Armazenamento</span><span class="card-analytics-title2">Gôndola</span>
+          </div>
+        </div>
+
+        <div class="info" id="info2">
+          <p class="card-analytics-title">Temperatura</p>
+            <div class="data-card1">
+              <p>Mínima</p>
+              <span>-2&deg;</span>
+              <p>Mínima</p>
+              <span>20&deg;</span>
+          </div>
+
+          <div class="data-card2">
+            <p>Máxima</p>
+            <span>4&deg;</span>
+            <p>Máxima</p>
+            <span>26&deg;</span>
+          </div>
+          <div class="footer-legenda">
+            <span class="card-analytics-title2">Armazenamento</span><span class="card-analytics-title2">Gôndola</span>
+          </div>
+        </div>
+
+        <div class="info" id="info3">
+          <p class="card-analytics-title">Temperatura</p>
+            <div class="data-card1">
+              <p>Mínima</p>
+              <span>1.5&deg;</span>
+              <p>Mínima</p>
+              <span>21&deg;</span>
+          </div>
+
+          <div class="data-card2">
+            <p>Máxima</p>
+            <span>3.5&deg;</span>
+            <p>Máxima</p>
+            <span>25&deg;</span>
+          </div>
+          <div class="footer-legenda">
+            <span class="card-analytics-title2">Armazenamento</span><span class="card-analytics-title2">Gôndola</span>
+          </div>
+        </div>
+
+        <div class="info" id="info4">
+          <p class="card-analytics-title">Temperatura</p>
+            <div class="data-card1">
+              <p>Mínima</p>
+              <span>2&deg;</span>
+              <p>Mínima</p>
+              <span>22&deg;</span>
+          </div>
+
+          <div class="data-card2">
+            <p>Máxima</p>
+            <span>3&deg;</span>
+            <p>Máxima</p>
+            <span>24&deg;</span>
+          </div>
+          <div class="footer-legenda">
+            <span class="card-analytics-title2">Armazenamento</span><span class="card-analytics-title2">Gôndola</span>
+          </div>
+          </div>
+      
+            <div class="header-info">
+
+              
+              <div class="info" id="info1">
+                <p class="card-analytics-title">Umidade</p>
+                <div class="data-card1">
+                  <p>Mínima</p>
+                  <span>87%</span>
+                  <p>Mínima</p>
+                  <span>60%</span>
+                </div>
+                
+                <div class="data-card2">
+                  <p>Máxima</p>
+                  <span>95%</span>
+                  <p>Máxima</p>
+                  <span>80%</span>
+                </div>
+                <div class="footer-legenda">
+                  <span class="card-analytics-title2">Armazenamento</span><span class="card-analytics-title2">Gôndola</span>
+                </div>
+              </div>
+              <div class="info" id="info2">
+                <p class="card-analytics-title">Umidade</p>
+                <div class="data-card1">
+                  <p>Mínima</p>
+                  <span>88%</span>
+                  <p>Mínima</p>
+                  <span>61%</span>
+                </div>
+                
+                <div class="data-card2">
+                  <p>Máxima</p>
+                  <span>94%</span>
+                  <p>Máxima</p>
+                  <span>79%</span>
+                </div>
+                <div class="footer-legenda">
+                  <span class="card-analytics-title2">Armazenamento</span><span class="card-analytics-title2">Gôndola</span>
+                </div>
+              </div>
+              
+              <div class="info" id="info3">
+                <p class="card-analytics-title">Umidade</p>
+                <div class="data-card1">
+                  <p>Mínima</p>
+                  <span>89%</span>
+                  <p>Mínima</p>
+                  <span>62%</span>
+                </div>
+                
+                <div class="data-card2">
+                  <p>Máxima</p>
+                  <span>93%</span>
+                  <p>Máxima</p>
+                  <span>78%</span>
+                </div>
+                <div class="footer-legenda">
+                  <span class="card-analytics-title2">Armazenamento</span><span class="card-analytics-title2">Gôndola</span>
+                </div>
+              </div>
+              
+              <div class="info" id="info4">
+                <p class="card-analytics-title">Umidade</p>
+                <div class="data-card1">
+                  <p>Mínima</p>
+                  <span>90%</span>
+                  <p>Mínima</p>
+                  <span>65%</span>
+                </div>
+
+                <div class="data-card2">
+                  <p>Máxima</p>
+                  <span>92%</span>
+                  <p>Máxima</p>
+                  <span>75%</span>
+                </div>
+                <div class="footer-legenda">
+                  <span class="card-analytics-title2">Armazenamento</span><span class="card-analytics-title2">Gôndola</span>
+                </div>
+              </div>
+            </div>
+      </div>
+
+
+      <div class="cards">
+
+        <div class="card">
+
+          <p class="card-title">Gôndola 1</p>
+
+          <span class="card-span">Ultima captura (temperatura): 24.7&deg;</span>
+          <span class="card-span">Ultima captura (umidade): 72%</span>
+          <span class="card-span">Variação de temperatura: 1.4&deg;</span>
+
+
+
+          <button class="btn-card" onclick="openModal()">Ver Gráficos</button>
+
+          <svg height="80" width="60">
+            <circle cx="40" cy="18" r="16" stroke="black" stroke-width="0" fill="green"/>
+          </svg>
+        </div>
+
+
+        <div class="card">
+          <p class="card-title">Freezer 1</p>
+
+          <span class="card-span">Ultima captura (temperatura): 5&deg;</span>
+          <span class="card-span">Ultima captura (umidade): 60%</span>
+          <span class="card-span">Variação de temperatura: 0&deg;</span>
+
+
+
+          <button class="btn-card" onclick="openModal2()">Ver Gráficos</button>
+
+          <svg height="80" width="60">
+            <circle cx="40" cy="18" r="16" stroke="black" stroke-width="0" />
+          </svg>
+        </div>
+
+
+
+
+
+
+
+        <div class="card">
+          <p class="card-title">Gôndola 2</p>
+
+          <span class="card-span">Ultima captura (temperatura): 20&deg;</span>
+          <span class="card-span">Ultima captura (umidade): 78%</span>
+          <span class="card-span">Variação de temperatura:  1&deg;</span>
+
+
+
+          <button class="btn-card" onclick="openModal3()">Ver Gráficos</button>
+
+          <svg height="80" width="60">
+            <circle cx="40" cy="18" r="16" stroke="black" stroke-width="0" fill="yellow" />
+          </svg>
+
+        </div>
+
+
+
+
+
+        <div class="card">
+          <div class="modal-container">
+            <div class="modal">
+              <h2>Info</h2>
+              <hr />
+              <div class="grafico-1">
+                <canvas id="myChart"></canvas>
+              </div>
+              <hr />
+              <div class="btns">
+                <button class="btnClose" onclick="closeModal()">Fechar</button>
+              </div>
+            </div>
+          </div>
+
+          <p class="card-title">Freezer 2</p>
+
+          <span class="card-span">Ultima captura (temperatura): 2.5&deg;</span>
+          <span class="card-span">Ultima captura (umidade): 90%</span>
+          <span class="card-span">Variação de temperatura: 0,4&deg;</span>
+
+
+
+          <button class="btn-card" onclick="openModal4()">Ver Gráficos</button>
+
+          <svg height="80" width="60">
+            <circle cx="40" cy="18" r="16" stroke="black" stroke-width="0" fill="green"/>
+          </svg>
+
+        </div>
+      </div>
+      <div class="footer">
+        <div>
+            <h4>Desenvolvido pela Agreen Solution &copy; 2022</h4>
+        </div>
+    </div>
+    </div>
+    
+
+      <!-- grafico -->
+      <!-- <div class="grafico-1">
+    <canvas id="myChart"></canvas>
+  </div> -->
+</body>
+
+</html>
+
+<script>
+
+  /*function atualizacaoPeriodica() {
+          obterdados(1);
+          obterdados(2);
+          obterdados(3);
+          obterdados(4);
+  
+          function sendData() {
+        var http = new XMLHttpRequest();
+        http.open('POST', 'http://localhost:3000/api/sendData', false);
+        http.send(null);
+      }
+  
+          setInterval(() => {
+        sendData();
+      }, 2000);
+          setTimeout(atualizacaoPeriodica, 5000);
+      }
+  
+      function obterdados(idAquario) {
+          fetch(`/medidas/tempo-real/${idAquario}`)
+              .then(resposta => {
+  
+                  if (resposta.ok) {
+                      resposta.json().then(resposta => {
+  
+                          console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+  
+                          var dados = {
+                              temperatura: resposta[0].temperatura,
+                          }
+  
+                          alertar(resposta[0].temperatura, idAquario);
+                      });
+                  } else {
+  
+                      console.error('Nenhum dado encontrado ou erro na API');
+                  }
+              })
+              .catch(function (error) {
+                  console.error(`Erro na obtenção dos dados do aquario p/ gráfico: ${error.message}`);
+              });
+  
+      }
+  
+      function alertar(temperatura, idAquario) {
+          var limites = {
+              muito_quente: 23,
+              quente: 22,
+              ideal: 20,
+              frio: 10,
+              muito_frio: 5
+          };
+  
+          var classe_temperatura = 'cor-alerta';
+  
+          if (temperatura >= limites.muito_quente) {
+              classe_temperatura = 'cor-alerta perigo-quente';
+              console.log("caiu no 1")
+          }
+          else if (temperatura < limites.muito_quente && temperatura >= limites.quente) {
+              classe_temperatura = 'cor-alerta alerta-quente';
+              console.log("caiu no 2")
+          }
+          else if (temperatura < limites.quente && temperatura > limites.frio) {
+              classe_temperatura = 'cor-alerta ideal';
+              console.log("caiu no 3")
+          }
+          else if (temperatura <= limites.frio && temperatura > limites.muito_frio) {
+              classe_temperatura = 'cor-alerta alerta-frio';
+              console.log("caiu no 4")
+          }
+          else if (temperatura < limites.min_temperatura) {
+              classe_temperatura = 'cor-alerta perigo-frio';
+              console.log("caiu no 5")
+          }
+  
+          var card;
+  
+          if (idAquario == 1) {
+              temp_aquario_1.innerHTML = temperatura + "°C";
+              card = card_1
+          } else if (idAquario == 2) {
+              temp_aquario_2.innerHTML = temperatura + "°C";
+              card = card_2
+          } else if (idAquario == 3) {
+              temp_aquario_3.innerHTML = temperatura + "°C";
+              card = card_3
+          } else if (idAquario == 4) {
+              temp_aquario_4.innerHTML = temperatura + "°C";
+              card = card_4
+          }
+  
+          // alterando
+          card.className = classe_temperatura;
+  
+      }
+  */
+    </script>
+
+<script>
+
+    
+  p_usuario.innerHTML = "Olá " + sessionStorage.NOME_USUARIO;
+  
+  let proximaAtualizacao;
+      
+  window.onload = obterDadosGrafico(1);
+
+  verificar_autenticacao();
+
+  function alterarTitulo(idAquario) {
+      var tituloAquario = document.getElementById("tituloAquario")
+      tituloAquario.innerHTML = "Últimas medidas de Temperatura e Umidade do <span style='color: #e6005a'>Aquário " + idAquario + "</span>"
+  }
+
+  // O gráfico é construído com três funções:
+  // 1. obterDadosGrafico -> Traz dados do Banco de Dados para montar o gráfico da primeira vez
+  // 2. plotarGrafico -> Monta o gráfico com os dados trazidos e exibe em tela
+  // 3. atualizarGrafico -> Atualiza o gráfico, trazendo novamente dados do Banco
+
+  // Esta função *obterDadosGrafico* busca os últimos dados inseridos em tabela de medidas.
+  // para, quando carregar o gráfico da primeira vez, já trazer com vários dados.
+  // A função *obterDadosGrafico* também invoca a função *plotarGrafico*
+
+  //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
+  //     Para ajustar o "select", ajuste o comando sql em src/models
+  function obterDadosGrafico(idAquario) {
+      alterarTitulo(idAquario)
+
+      if (proximaAtualizacao != undefined) {
+          clearTimeout(proximaAtualizacao);
+      }
+
+      fetch(`/medidas/ultimas/${idAquario}`, { cache: 'no-store' }).then(function (response) {
+          if (response.ok) {
+              response.json().then(function (resposta) {
+                  console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                  resposta.reverse();
+
+                  plotarGrafico(resposta, idAquario);
+              });
+          } else {
+              console.error('Nenhum dado encontrado ou erro na API');
+          }
+      })
+          .catch(function (error) {
+              console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+          });
+  }
+
+  // Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
+  // Configura o gráfico (cores, tipo, etc), materializa-o na página e, 
+  // A função *plotarGrafico* também invoca a função *atualizarGrafico*
+  function plotarGrafico(resposta, idAquario) {
+      console.log('iniciando plotagem do gráfico...');
+
+      // Criando estrutura para plotar gráfico - labels
+      let labels = [];
+      
+      // Criando estrutura para plotar gráfico - dados
+      let dados = {
+          labels: labels,
+          datasets: [{
+              label: 'Umidade',
+              data: [],
+              fill: false,
+              borderColor: 'rgb(75, 192, 192)',
+              tension: 0.1
+          },
+          {
+              label: 'Temperatura',
+              data: [],
+              fill: false,
+              borderColor: 'rgb(199, 52, 52)',
+              tension: 0.1
+          }]
+      };
+      
+      console.log('----------------------------------------------')
+      console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
+      console.log(resposta)
+      
+      // Inserindo valores recebidos em estrutura para plotar o gráfico
+      for (i = 0; i < resposta.length; i++) {
+          var registro = resposta[i];
+          labels.push(registro.momento_grafico);
+          dados.datasets[0].data.push(registro.umidade);
+          dados.datasets[1].data.push(registro.temperatura);
+      }
+      
+      console.log('----------------------------------------------')
+      console.log('O gráfico será plotado com os respectivos valores:')
+      console.log('Labels:')
+      console.log(labels)
+      console.log('Dados:')
+      console.log(dados.datasets)
+      console.log('----------------------------------------------')
+      
+      // Criando estrutura para plotar gráfico - config
+      const config = {
+          type: 'line',
+          data: dados,
+      };
+
+      // Adicionando gráfico criado em div na tela
+      let myChart = new Chart(
+          document.getElementById('myChart'),
+          config
+      );
+
+      setTimeout(() => atualizarGrafico(idAquario, dados, myChart), 2000);
+  }
+
+
+  // Esta função *atualizarGrafico* atualiza o gráfico que foi renderizado na página,
+  // buscando a última medida inserida em tabela contendo as capturas, 
+
+  //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
+  //     Para ajustar o "select", ajuste o comando sql em src/models
+  function atualizarGrafico(idAquario, dados, myChart) {
+
+      fetch(`/medidas/tempo-real/${idAquario}`, { cache: 'no-store' }).then(function (response) {
+          if (response.ok) {
+              response.json().then(function (novoRegistro) {
+
+                  console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
+                  console.log(`Dados atuais do gráfico:`);
+                  console.log(dados);
+
+                  document.getElementById("avisoCaptura").innerHTML = ""
+
+                  if (novoRegistro[0].momento_grafico == dados.labels[dados.labels.length - 1]) {
+                      console.log("---------------------------------------------------------------")
+                      console.log("Como não há dados novos para captura, o gráfico não atualizará.")
+                      document.getElementById("avisoCaptura").innerHTML = "<i class='fa-solid fa-triangle-exclamation'></i> Foi trazido o dado mais atual capturado pelo sensor. <br> Como não há dados novos a exibir, o gráfico não atualizará."
+                      console.log("Horário do novo dado capturado:")
+                      console.log(novoRegistro[0].momento_grafico)
+                      console.log("Horário do último dado capturado:")
+                      console.log(dados.labels[dados.labels.length - 1])
+                      console.log("---------------------------------------------------------------")
+                  } else {
+                      // tirando e colocando valores no gráfico
+                      dados.labels.shift(); // apagar o primeiro
+                      dados.labels.push(novoRegistro[0].momento_grafico); // incluir um novo momento
+
+                      dados.datasets[0].data.shift();  // apagar o primeiro de umidade
+                      dados.datasets[0].data.push(novoRegistro[0].umidade); // incluir uma nova medida de umidade
+
+                      dados.datasets[1].data.shift();  // apagar o primeiro de temperatura
+                      dados.datasets[1].data.push(novoRegistro[0].temperatura); // incluir uma nova medida de temperatura
+
+                      myChart.update();
+                  }
+
+                  // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
+                  proximaAtualizacao = setTimeout(() => atualizarGrafico(idAquario, dados, myChart), 2000);
+              });
+          } else {
+              console.error('Nenhum dado encontrado ou erro na API');
+              // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
+              proximaAtualizacao = setTimeout(() => atualizarGrafico(idAquario, dados, myChart), 2000);
+          }
+      })
+          .catch(function (error) {
+              console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+          });
+
+  }
+
+</script>
+   
+<script>
+    /*paramentro Umidade*/
+  const labels = [
+    "1:00:00 PM", "2:00:00 PM", "3:00:00 PM", "4:00:00 PM", "5:00:00 PM", 
+    "6:00:00 PM","7:00:00 PM","8:00:00 PM","9:00:00 PM","10:00:00 PM",
+    "11:00:00 PM","12:00:00 PM","1:00:00 AM","2:00:00 AM","3:00:00 AM",
+    "4:00:00 AM","5:00:00 AM","6:00:00 AM","7:00:00 AM","8:00:00 AM"];
+
+    /*paramentro temperatura*/
+  const labels2 = [
+  "1:00:00 PM", "2:00:00 PM", "3:00:00 PM", "4:00:00 PM", "5:00:00 PM", 
+    "6:00:00 PM","7:00:00 PM","8:00:00 PM","9:00:00 PM","10:00:00 PM",
+    "11:00:00 PM","12:00:00 PM","1:00:00 AM","2:00:00 AM","3:00:00 AM",
+    "4:00:00 AM","5:00:00 AM","6:00:00 AM","7:00:00 AM","8:00:00 AM"];
+
+    /* Quadro 1 Gondola */ 
+  const data = {
+    labels: labels2,
+    datasets: [
+      {
+        label: "Temperatura",
+        backgroundColor: "rgb(254, 0, 0)",
+        borderColor: "rgb(254, 0, 0)",
+        data: [
+        22.0, 21.5, 23.5, 24.0, 23.5, 24.7,24.2, 23.7, 22.9, 22.5, 22.0, 
+        21.9, 21.4, 20.0, 20.5, 21.0, 21.2, 21.9, 22.5, 23.9
+      ],
+      },
+    ],
+  };
+
+  const data2 = {
+    labels: labels,
+    datasets: [
+      {
+        label: "Umidade",
+        backgroundColor: "rgb(75, 96, 254)",
+        borderColor: "rgb(75, 96, 254)",
+        data: [
+          66.8, 67.2, 68.5, 69.7, 66.9, 65.7, 66.5, 67.6, 65.4, 69.5, 64.4, 
+          67.8, 65.8, 64.8, 66.8, 67.6, 68.6, 69.6, 70.0,72.0  
+        ],
+      },
+    ],
+  };
+
+ /* Quadro 2 Gondola */ 
+ const data3 = {
+    labels: labels2,
+    datasets: [
+      {
+        label: "Temperatura",
+        backgroundColor: "rgb(254, 0, 0)",
+        borderColor: "rgb(254, 0, 0)",
+        data: [
+        2.0, 2.4, 2.6, 2.8, 3, 3.2, 3, 2.8, 2.7, 2.5, 2.4, 
+        2.3, 2.2, 2.0, 1.9, 1.8, 2.0, 2.6, 2.4, 2.4
+      ],
+      },
+    ],
+  };
+
+  const data4 = {
+    labels: labels,
+    datasets: [
+      {
+        label: "Umidade",
+        backgroundColor: "rgb(75, 96, 254)",
+        borderColor: "rgb(75, 96, 254)",
+        data: [
+          74.48, 73.48, 75.48, 76.48, 77.48, 76.48, 75.28, 75.38, 75.68, 75.58, 
+          76.28, 76.48, 76.68, 76.78, 76.88, 77.0, 78.02, 78.22, 79.0, 80.3
+        ],
+      },
+    ],
+  };
+  // Quadro 3 Gondola
+  const data5 = {
+    labels: labels2,
+    datasets: [
+      {
+        label: "Temperatura",
+        backgroundColor: "rgb(254, 0, 0)",
+        borderColor: "rgb(254, 0, 0)",
+        data: [
+        22.2, 22.2, 23.5, 22.9, 22.1, 22.5, 23.5, 22.9, 22.4, 22.2, 23.6, 
+        23.8, 22.2, 21.9, 22.6, 21.8, 22.2, 21.9, 23.4, 24.4 
+      ],
+      },
+    ],
+  };
+  
+  const data6 = {
+    labels: labels,
+    datasets: [
+      {
+        label: "Umidade",
+        backgroundColor: "rgb(75, 96, 254)",
+        borderColor: "rgb(75, 96, 254)",
+        data: [
+          73.48, 73.48, 73.48, 73.48, 
+          73.48, 73.48, 73.48, 73.48, 73.48, 73.48, 73.48, 73.48, 71.5, 71.5, 
+          71.5, 71.5, 73.48, 73.48, 73.48, 78.48       
+        ],
+      },
+    ],
+  };
+
+  // Quadro 4 Gondola
+  const data7 = {
+    labels: labels2,
+    datasets: [
+      {
+        label: "Temperatura",
+        backgroundColor: "rgb(254, 0, 0)",
+        borderColor: "rgb(254, 0, 0)",
+        data: [
+        2.6, 2.8, 2.8, 2.0, 2.0, 2.0, 2.2, 2.2, 2.7, 2.3,
+        2.5, 2.0, 2.2, 2.8, 2.6, 2.4, 2.4, 2.2, 1.8, 2.2
+         
+      ],
+      },
+    ],
+  };
+  
+  const data8 = {
+    labels: labels,
+    datasets: [
+      {
+        label: "Umidade",
+        backgroundColor: "rgb(75, 96, 254)",
+        borderColor: "rgb(75, 96, 254))",
+        data: [ 
+          91.3, 91.3,91.3, 91.3, 91.3, 91.3, 91.3, 91.3, 91.3, 91.3, 87.34, 87.34, 87.34, 
+          87.34, 83.38, 83.38, 83.38, 83.38, 79.42, 81.42     
+        ],
+      },
+    ],
+  };
+
+
+  const faixas = {
+    scales: {
+        y: {
+          SuggestedMin: 18,
+          Max: 26,
+        },
+      },
+    plugins: {
+      title: {
+        display: true,
+        text: 'Temperatura Gôndola'
+      },
+    autocolors: false,
+    annotation: {
+      annotations: {
+        line1: {
+          type: 'line',
+          yMin: 22,
+          yMax: 22,
+          borderColor: 'green',
+          borderWidth: 1,
+        },
+        line2: {
+          type: 'line',
+          yMin: 24,
+          yMax: 24,
+          borderColor: 'green',
+          borderWidth: 1,
+        },
+        
+      }
+    }
+  }
+  }
+
+  const faixas2 = {
+    scales: {
+        y: {
+          suggestedMin: 1,
+          suggestedMax: 4,
+        },
+        
+      },
+    plugins: {
+      title: {
+        display: true,
+        text: 'Temperatura Freezer'
+      },
+      autocolors: false,
+      annotation: {
+        annotations: {
+          line1: {
+            type: 'line',
+            yMin: 2,
+            yMax: 2,
+            borderColor: 'green',
+            borderWidth: 1,
+          },
+          line2: {
+            type: 'line',
+            yMin: 3,
+            yMax: 3,
+            borderColor: 'green',
+            borderWidth: 1,
+          },
+          
+      }
+    }
+  }
+  }
+
+
+  /* Quadro 1 Gondola */
+  const config = {
+    type: "line",
+    data: data,
+    options: faixas
+  };
+
+  const config2 = {
+    type: "bar",
+    data: data2,
+    options: {
+      plugins: {
+        title: {
+        display: true,
+        text: 'Umidade Gôndola'
+      }
+      },
+      scales: {
+        y: {
+          suggestedMin: 0,
+          suggestedMax: 100,
+        }
+      }
+    },
+  };
+
+  /* Quadro 2 Freezer 1 */
+  const config3 = {
+    type: "line",
+    data: data3,
+    options: faixas2
+  };
+
+  const config4 = {
+    type: "bar",
+    data: data4,
+    options: {
+      plugins: {
+        title: {
+        display: true,
+        text: 'Umidade Freezer'
+      }
+      },
+      scales: {
+        y: {
+          suggestedMin: 0,
+          suggestedMax: 100,
+        }
+      }},
+  };
+//  Quadro 3 Gondola 2
+  const config5 = {
+    type: "line",
+    data: data5,
+    options: faixas
+  };
+
+  const config6 = {
+    type: "bar",
+    data: data6,
+    options: {
+      plugins: {
+        title: {
+        display: true,
+        text: 'Umidade Gôndola'
+      }
+      },
+      scales: {
+        y: {
+          suggestedMin: 0,
+          suggestedMax: 100,
+        }
+      }},
+  }
+  // Quadro 4 Freezer 2
+  const config7 = {
+    type: "line",
+    data: data7,
+    options: faixas2
+  };
+
+  const config8 = {
+    type: "bar",
+    data: data8,
+    options: {
+      plugins: {
+        title: {
+        display: true,
+        text: 'Umidade Freezer'
+      }
+      },
+      scales: {
+        y: {
+          suggestedMin: 0,
+          suggestedMax: 100,
+        }
+      }
+    },
+  }
+</script>
+
+<script>
+  const myChart = new Chart(document.getElementById("myChart"), config);
+
+  const myChart2 = new Chart(document.getElementById("myChart2"), config2);
+
+  const myChart3 = new Chart(document.getElementById("myChart3"), config3);
+
+  const myChart4 = new Chart(document.getElementById("myChart4"), config4);
+
+  const myChart5 = new Chart(document.getElementById("myChart5"), config5);
+
+  const myChart6 = new Chart(document.getElementById("myChart6"), config6);
+
+  const myChart7 = new Chart(document.getElementById("myChart7"), config7);
+
+  const myChart8 = new Chart(document.getElementById("myChart8"), config8);
+</script>
+
+
+<script src="../js/scriptmodais.js"></script>
