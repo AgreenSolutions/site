@@ -501,15 +501,15 @@
 
           <p class="card-title">Gôndola 1</p>
 
-          <span class="card-span">Ultima captura (temperatura): 24.7&deg;</span>
-          <span class="card-span">Ultima captura (umidade): 72%</span>
-          <span class="card-span">Variação de temperatura: 1.4&deg;</span>
+          <span class="card-span temp" id="temp">Ultima captura (temperatura): 24.7&deg;</span>
+          <span class="card-span umi" id="umi">Ultima captura (umidade): 72%</span>
+          <span class="card-span vartemp" id="var">Variação de temperatura: 1.4&deg;</span>
 
 
 
           <button class="btn-card" onclick="openModal()">Ver Gráficos</button>
 
-          <svg height="80" width="60">
+          <svg height="80" width="60" class="svg">
             <circle cx="40" cy="18" r="16" stroke="black" stroke-width="0" fill="green"/>
           </svg>
         </div>
@@ -607,11 +607,10 @@
 
 <script>
 
-  /*function atualizacaoPeriodica() {
+  function atualizacaoPeriodica() {
           obterdados(1);
           obterdados(2);
           obterdados(3);
-          obterdados(4);
   
           function sendData() {
         var http = new XMLHttpRequest();
@@ -625,20 +624,23 @@
           setTimeout(atualizacaoPeriodica, 5000);
       }
   
-      function obterdados(idAquario) {
-          fetch(`/medidas/tempo-real/${idAquario}`)
+      function obterdados(idSensor) {
+          fetch(`/medidas/tempo-real/${idSensor}`)
               .then(resposta => {
   
                   if (resposta.ok) {
                       resposta.json().then(resposta => {
   
                           console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-  
+                          temp.innerHTML = resposta[0].temperatura + "°C";
                           var dados = {
                               temperatura: resposta[0].temperatura,
+                              umidade: resposta[1].umidade
                           }
+                          
   
-                          alertar(resposta[0].temperatura, idAquario);
+                          alertar(resposta[0].temperatura, idSensor);
+                          
                       });
                   } else {
   
@@ -651,7 +653,7 @@
   
       }
   
-      function alertar(temperatura, idAquario) {
+      function alertar(temperatura, idSensor) {
           var limites = {
               muito_quente: 23,
               quente: 22,
@@ -685,17 +687,18 @@
   
           var card;
   
-          if (idAquario == 1) {
-              temp_aquario_1.innerHTML = temperatura + "°C";
+          if (idSensor == 1) {
+              
+              console.log("AQUI")
               card = card_1
-          } else if (idAquario == 2) {
-              temp_aquario_2.innerHTML = temperatura + "°C";
+          } else if (idSensor == 2) {
+              temp.innerHTML = temperatura + "°C";
               card = card_2
-          } else if (idAquario == 3) {
-              temp_aquario_3.innerHTML = temperatura + "°C";
+          } else if (idSensor == 3) {
+              temp.innerHTML = temperatura + "°C";
               card = card_3
-          } else if (idAquario == 4) {
-              temp_aquario_4.innerHTML = temperatura + "°C";
+          } else if (idSensor == 4) {
+              temp.innerHTML = temperatura + "°C";
               card = card_4
           }
   
@@ -703,7 +706,6 @@
           card.className = classe_temperatura;
   
       }
-  */
     </script>
 
 <script>
@@ -717,9 +719,9 @@
 
   verificar_autenticacao();
 
-  function alterarTitulo(idAquario) {
+  function alterarTitulo(idSensor) {
       var tituloAquario = document.getElementById("tituloAquario")
-      tituloAquario.innerHTML = "Últimas medidas de Temperatura e Umidade do <span style='color: #e6005a'>Aquário " + idAquario + "</span>"
+      tituloAquario.innerHTML = "Últimas medidas de Temperatura e Umidade do <span style='color: #e6005a'>Aquário " + idSensor + "</span>"
   }
 
   // O gráfico é construído com três funções:
@@ -733,20 +735,20 @@
 
   //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
   //     Para ajustar o "select", ajuste o comando sql em src/models
-  function obterDadosGrafico(idAquario) {
-      alterarTitulo(idAquario)
+  function obterDadosGrafico(idSensor) {
+      alterarTitulo(idSensor)
 
       if (proximaAtualizacao != undefined) {
           clearTimeout(proximaAtualizacao);
       }
 
-      fetch(`/medidas/ultimas/${idAquario}`, { cache: 'no-store' }).then(function (response) {
+      fetch(`/medidas/ultimas/${idSensor}`, { cache: 'no-store' }).then(function (response) {
           if (response.ok) {
               response.json().then(function (resposta) {
                   console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
                   resposta.reverse();
 
-                  plotarGrafico(resposta, idAquario);
+                  plotarGrafico(resposta, idSensor);
               });
           } else {
               console.error('Nenhum dado encontrado ou erro na API');
@@ -760,7 +762,7 @@
   // Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
   // Configura o gráfico (cores, tipo, etc), materializa-o na página e, 
   // A função *plotarGrafico* também invoca a função *atualizarGrafico*
-  function plotarGrafico(resposta, idAquario) {
+  function plotarGrafico(resposta, idSensor) {
       console.log('iniciando plotagem do gráfico...');
 
       // Criando estrutura para plotar gráfico - labels
@@ -817,7 +819,7 @@
           config
       );
 
-      setTimeout(() => atualizarGrafico(idAquario, dados, myChart), 2000);
+      setTimeout(() => atualizarGrafico(idSensor, dados, myChart), 2000);
   }
 
 
@@ -826,9 +828,9 @@
 
   //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
   //     Para ajustar o "select", ajuste o comando sql em src/models
-  function atualizarGrafico(idAquario, dados, myChart) {
+  function atualizarGrafico(idSensor, dados, myChart) {
 
-      fetch(`/medidas/tempo-real/${idAquario}`, { cache: 'no-store' }).then(function (response) {
+      fetch(`/medidas/tempo-real/${idSensor}`, { cache: 'no-store' }).then(function (response) {
           if (response.ok) {
               response.json().then(function (novoRegistro) {
 
@@ -862,12 +864,12 @@
                   }
 
                   // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-                  proximaAtualizacao = setTimeout(() => atualizarGrafico(idAquario, dados, myChart), 2000);
+                  proximaAtualizacao = setTimeout(() => atualizarGrafico(idSensor, dados, myChart), 2000);
               });
           } else {
               console.error('Nenhum dado encontrado ou erro na API');
               // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-              proximaAtualizacao = setTimeout(() => atualizarGrafico(idAquario, dados, myChart), 2000);
+              proximaAtualizacao = setTimeout(() => atualizarGrafico(idSensor, dados, myChart), 2000);
           }
       })
           .catch(function (error) {
