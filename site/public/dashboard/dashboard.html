@@ -501,16 +501,16 @@
 
           <p class="card-title">Gôndola 1</p>
 
-          <span class="card-span temp" id="temp">Ultima captura (temperatura): 24.7&deg;</span>
-          <span class="card-span umi" id="umi">Ultima captura (umidade): 72%</span>
-          <span class="card-span vartemp" id="var">Variação de temperatura: 1.4&deg;</span>
+          <span class="card-span" id="temp">Ultima captura (temperatura): 24.7&deg;</span>
+          <span class="card-span" id="umi">Ultima captura (umidade): 72%</span>
+          <span class="card-span" id="var">Variação de temperatura: 1.4&deg;</span>
 
 
 
           <button class="btn-card" onclick="openModal()">Ver Gráficos</button>
 
           <svg height="80" width="60" class="svg">
-            <circle cx="40" cy="18" r="16" stroke="black" stroke-width="0" fill="green"/>
+            <circle id="cir" cx="40" cy="18" r="16" stroke="black" stroke-width="0" fill="green"/>
           </svg>
         </div>
 
@@ -518,16 +518,16 @@
         <div class="card">
           <p class="card-title">Freezer 1</p>
 
-          <span class="card-span">Ultima captura (temperatura): 5&deg;</span>
-          <span class="card-span">Ultima captura (umidade): 60%</span>
-          <span class="card-span">Variação de temperatura: 0&deg;</span>
+          <span class="card-span" id="temp2">Ultima captura (temperatura): 5&deg;</span>
+          <span class="card-span" id="umi2">Ultima captura (umidade): 60%</span>
+          <span class="card-span" id="var2">Variação de temperatura: 0&deg;</span>
 
 
 
           <button class="btn-card" onclick="openModal2()">Ver Gráficos</button>
 
           <svg height="80" width="60">
-            <circle cx="40" cy="18" r="16" stroke="black" stroke-width="0" />
+            <circle id="cir2" cx="40" cy="18" r="16" stroke="black" stroke-width="0" />
           </svg>
         </div>
 
@@ -540,16 +540,16 @@
         <div class="card">
           <p class="card-title">Gôndola 2</p>
 
-          <span class="card-span">Ultima captura (temperatura): 20&deg;</span>
-          <span class="card-span">Ultima captura (umidade): 78%</span>
-          <span class="card-span">Variação de temperatura:  1&deg;</span>
+          <span class="card-span" id="temp3">Ultima captura (temperatura): 20&deg;</span>
+          <span class="card-span" id="umi3">Ultima captura (umidade): 78%</span>
+          <span class="card-span" id="var3">Variação de temperatura:  1&deg;</span>
 
 
 
           <button class="btn-card" onclick="openModal3()">Ver Gráficos</button>
 
           <svg height="80" width="60">
-            <circle cx="40" cy="18" r="16" stroke="black" stroke-width="0" fill="yellow" />
+            <circle id="cir3" cx="40" cy="18" r="16" stroke="black" stroke-width="0" fill="yellow" />
           </svg>
 
         </div>
@@ -575,16 +575,16 @@
 
           <p class="card-title">Freezer 2</p>
 
-          <span class="card-span">Ultima captura (temperatura): 2.5&deg;</span>
-          <span class="card-span">Ultima captura (umidade): 90%</span>
-          <span class="card-span">Variação de temperatura: 0,4&deg;</span>
+          <span class="card-span" id="temp4">Ultima captura (temperatura): 2.5&deg;</span>
+          <span class="card-span" id="umi4">Ultima captura (umidade): 90%</span>
+          <span class="card-span" id="var4">Variação de temperatura: 0,4&deg;</span>
 
 
 
           <button class="btn-card" onclick="openModal4()">Ver Gráficos</button>
 
           <svg height="80" width="60">
-            <circle cx="40" cy="18" r="16" stroke="black" stroke-width="0" fill="green"/>
+            <circle id="cir4" cx="40" cy="18" r="16" stroke="black" stroke-width="0" fill="green"/>
           </svg>
 
         </div>
@@ -625,21 +625,23 @@
       }
   
       function obterdados(idSensor) {
-          fetch(`/medidas/tempo-real/${idSensor}`)
+          fetch(`/medidas/temp  o-real/${idSensor}`)
               .then(resposta => {
   
                   if (resposta.ok) {
                       resposta.json().then(resposta => {
   
                           console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                          console.log(resposta[0].temperatura)
+                          console.log(resposta[0].umidade)
                           temp.innerHTML = resposta[0].temperatura + "°C";
                           var dados = {
                               temperatura: resposta[0].temperatura,
-                              umidade: resposta[1].umidade
+                              umidade: resposta[0].umidade
                           }
                           
   
-                          alertar(resposta[0].temperatura, idSensor);
+                          alertar(resposta[0].temperatura,resposta[0].umidade, idSensor);
                           
                       });
                   } else {
@@ -653,64 +655,66 @@
   
       }
   
-      function alertar(temperatura, idSensor) {
-          var limites = {
-              muito_quente: 23,
-              quente: 22,
-              ideal: 20,
-              frio: 10,
-              muito_frio: 5
+      function alertar(temperatura,umidade, idSensor) {
+          var limitesTemp = {
+              ideal: 24,
+              alerta: 25,
+              emergencia: 26,
+              critico: 27,
           };
+          var limitesUmi = {
+            ideal:75,
+            alerta:78,
+            emergencia: 79,
+            critico:80,
+          }
   
-          var classe_temperatura = 'cor-alerta';
+          //var classe_temperatura = 'cor-alerta';
   
-          if (temperatura >= limites.muito_quente) {
-              classe_temperatura = 'cor-alerta perigo-quente';
+          if (temperatura >= limitesTemp.critico) {
+              svg.style.fill="red"
               console.log("caiu no 1")
           }
-          else if (temperatura < limites.muito_quente && temperatura >= limites.quente) {
-              classe_temperatura = 'cor-alerta alerta-quente';
+          else if (temperatura>= limitesTemp.emergencia) {
+            svg.style.fill="orange"
               console.log("caiu no 2")
           }
-          else if (temperatura < limites.quente && temperatura > limites.frio) {
-              classe_temperatura = 'cor-alerta ideal';
+          else if (temperatura>=limitesTemp.alerta) {
+            svg.style.fill="yellow"
               console.log("caiu no 3")
           }
-          else if (temperatura <= limites.frio && temperatura > limites.muito_frio) {
-              classe_temperatura = 'cor-alerta alerta-frio';
+          else if (temperatura>=limitesTemp.ideal) {
+            svg.style.fill="green"
               console.log("caiu no 4")
           }
-          else if (temperatura < limites.min_temperatura) {
-              classe_temperatura = 'cor-alerta perigo-frio';
-              console.log("caiu no 5")
-          }
+          
   
-          var card;
+          //var card;
   
           if (idSensor == 1) {
-              
+            temp.innerHTML = temperatura + "°C";
               console.log("AQUI")
-              card = card_1
+             // card = card_1
           } else if (idSensor == 2) {
-              temp.innerHTML = temperatura + "°C";
-              card = card_2
+              temp2.innerHTML = temperatura + "°C";
+             // card = card_2
           } else if (idSensor == 3) {
-              temp.innerHTML = temperatura + "°C";
-              card = card_3
+              temp3.innerHTML = temperatura + "°C";
+              //card = card_3
           } else if (idSensor == 4) {
-              temp.innerHTML = temperatura + "°C";
-              card = card_4
+              temp4.innerHTML = temperatura + "°C";
+             // card = card_4
           }
   
           // alterando
-          card.className = classe_temperatura;
+         // card.className = classe_temperatura;
   
       }
     </script>
 
 <script>
 
-    
+  /*  
   p_usuario.innerHTML = "Olá " + sessionStorage.NOME_USUARIO;
   
   let proximaAtualizacao;
@@ -877,7 +881,7 @@
           });
 
   }
-
+*/
 </script>
    
 <script>
