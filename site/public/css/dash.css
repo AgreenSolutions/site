@@ -529,60 +529,110 @@ body {
 
 .graficos {
     width: 50%;
-    height: 80%;
+    height: 90%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-end;
+    margin: auto;
 }
 
 .grafico-1 {
-    width: 35vw;
-    height: 25vh;
+    width: 100%;
+    height: 100%;
+    margin: 0!important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .grafico-2 {
-    width: 35vw;
-    height: 25vh;
+    width: 100%;
+    height: 100%;
+    margin: 0!important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.grafico-1 canvas {
+    margin: 0;
+}
+.grafico-2 canvas {
+    margin: 0;
+}
+.grafico-3 canvas {
+    margin: 0;
+}
+.grafico-4 canvas {
+    margin: 0;
 }
 
 .graficos2 {
     width: 50%;
-    height: 80%;
+    height: 90%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-end;
+    margin: auto;
 }
 
 .grafico-3 {
-    width: 35vw;
-    height: 25vh;
+    width: 100%;
+    height: 100%;
+    margin: 0!important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .grafico-4 {
-    width: 35vw;
-    height: 25vh;
+    width: 100%;
+    height: 100%;
+    margin: 0!important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
+
 .grafico-5 {
-    width: 35vw;
-    height: 25vh;
+    width: 100%;
+    height: 100%;
+    margin: 0!important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .grafico-6 {
-    width: 35vw;
-    height: 25vh;
+    width: 100%;
+    height: 100%;
+    margin: 0!important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .grafico-7 {
-    width: 35vw;
-    height: 25vh;
+    width: 100%;
+    height: 100%;
+    margin: 0!important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .grafico-8 {
-    width: 35vw;
-    height: 25vh;
+    width: 100%;
+    height: 100%;
+    margin: 0!important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 

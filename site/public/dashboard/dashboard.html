@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="../css/dash.css" />
+  <link rel="stylesheet" href="../css/dash.css"/>
   <link rel="icon" href="../assets/imgs/Agreen_-_White_with_Black.png" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-annotation/2.0.1/chartjs-plugin-annotation.min.js" integrity="sha512-LZEOcU8s74hwWva82MJux7GgFNjfeExXG9yZPQrKz567Od4O2D/6UX3oGoZiRDOdbMtH33NBq7vonH4VOUPA/Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -607,22 +607,22 @@
 
 <script>
 
-  function atualizacaoPeriodica() {
-          obterdados(1);
-          obterdados(2);
-          obterdados(3);
+  // function atualizacaoPeriodica() {
+  //         obterdados(1);
+  //         obterdados(2);
+  //         obterdados(3);
   
-          function sendData() {
-        var http = new XMLHttpRequest();
-        http.open('POST', 'http://localhost:3000/api/sendData', false);
-        http.send(null);
-      }
+  //         function sendData() {
+  //       var http = new XMLHttpRequest();
+  //       http.open('POST', 'http://localhost:3000/api/sendData', false);
+  //       http.send(null);
+  //     }
   
-          setInterval(() => {
-        sendData();
-      }, 2000);
-          setTimeout(atualizacaoPeriodica, 5000);
-      }
+  //         setInterval(() => {
+  //       sendData();
+  //     }, 2000);
+  //         setTimeout(atualizacaoPeriodica, 5000);
+  //     }
   
       function obterdados(idSensor) {
           fetch(`/medidas/temp  o-real/${idSensor}`)
