@@ -1,4 +1,4 @@
-var senha = document.querySelector('.senha');
+    var senha = document.querySelector('.senha');
     var olho = document.querySelector('.btn');
 
     olho.onclick = () => {
@@ -10,3 +10,18 @@ var senha = document.querySelector('.senha');
             olho.src = './assets/icon/eye.png';
         }
     }
+
+    // fechar alerts personalizados, tela de login
+
+function Closeerro1() {
+    modalcontainer1.style.display = 'none';
+  }
+  
+  function Closeerro2() {
+    modalcontainer2.style.display = 'none';
+  }
+  
+  function Closeerro3() {
+    modalcontainer3.style.display = 'none';
+  }
+  

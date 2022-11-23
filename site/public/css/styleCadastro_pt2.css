@@ -130,7 +130,214 @@ body {
 }
 
 
+/* modais de erro */
 
+.fechar{
+    font-size: 15px;
+    font-weight: 200;
+    width: 20%;
+    height: 20%;
+    background-color: #b0e9be;
+    border-radius: 50px;
+    cursor: pointer;
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.fechar:hover{
+    background-color: #ff0000;
+    color: #fff;
+    transition: 0.5s;
+}
+
+.texto {
+    display: flex;
+    color:red ;
+    margin-top: 45px;
+}
+
+.modal-container1 {
+    width: 300px;
+    height: 120px;
+    top: 30px;
+    display: none;
+    position: fixed;
+    z-index: 999;
+    justify-content: center;
+    align-items: center;
+    margin-left: 550px;
+    margin-top: 100px;
+    
+}
+.modal-container2 {
+    width: 300px;
+    height: 120px;
+    top: 30px;
+    display: none;
+    position: fixed;
+    z-index: 999;
+    justify-content: center;
+    align-items: center;
+    margin-left: 550px;
+    margin-top: 100px;
+}
+.modal-container3 {
+    width: 300px;
+    height: 120px;
+    top: 30px;
+    display: none;
+    position: fixed;
+    z-index: 999;
+    justify-content: center;
+    align-items: center;
+    margin-left: 550px;
+    margin-top: 100px;
+    
+}
+.modal-container4 {
+    width: 300px;
+    height: 120px;
+    top: 30px;
+    display: none;
+    position: fixed;
+    z-index: 999;
+    justify-content: center;
+    align-items: center;
+    margin-left: 550px;
+    margin-top: 100px;
+    
+}
+.modal-container5 {
+    width: 300px;
+    height: 120px;
+    top: 30px;
+    display: none;
+    position: fixed;
+    z-index: 999;
+    justify-content: center;
+    align-items: center;
+    margin-left: 550px;
+    margin-top: 100px;
+}
+.modal-container6 {
+    width: 300px;
+    height: 120px;
+    top: 30px;
+    display: none;
+    position: fixed;
+    z-index: 999;
+    justify-content: center;
+    align-items: center;
+    margin-left: 550px;
+    margin-top: 100px;
+    
+}
+.modal-container7 {
+    width: 300px;
+    height: 120px;
+    top: 30px;
+    display: none;
+    position: fixed;
+    z-index: 999;
+    justify-content: center;
+    align-items: center;
+    margin-left: 550px;
+    margin-top: 100px;
+}
+.modal-container8 {
+    width: 300px;
+    height: 120px;
+    top: 30px;
+    display: none;
+    position: fixed;
+    z-index: 999;
+    justify-content: center;
+    align-items: center;
+    margin-left: 550px;
+    margin-top: 100px;
+    
+}
+
+.modal1 {
+    display: flex;
+    flex-direction: row;
+    padding: 30px;
+    background-color: white;
+    border-radius: 10px;
+    width: 90%;
+    height: 90%;
+    z-index: 999;
+}
+.modal2 {
+    display: flex;
+    flex-direction: row;
+    padding: 30px;
+    background-color: white;
+    border-radius: 10px;
+    width: 90%;
+    height: 90%;
+    z-index: 999;
+}
+.modal3 {
+    display: flex;
+    flex-direction: row;
+    padding: 30px;
+    background-color: white;
+    border-radius: 10px;
+    width: 90%;
+    height: 90%;
+    z-index: 999;
+}
+.modal4 {
+    display: flex;
+    flex-direction: row;
+    padding: 30px;
+    background-color: white;
+    border-radius: 10px;
+    width: 90%;
+    height: 90%;
+    z-index: 999;
+}
+.modal5 {
+    display: flex;
+    flex-direction: row;
+    padding: 30px;
+    background-color: white;
+    border-radius: 10px;
+    width: 90%;
+    height: 90%;
+    z-index: 999;
+}
+.modal6 {
+    display: flex;
+    flex-direction: row;
+    padding: 30px;
+    background-color: white;
+    border-radius: 10px;
+    width: 90%;
+    height: 90%;
+    z-index: 999;
+}
+.modal7 {
+    display: flex;
+    flex-direction: row;
+    padding: 30px;
+    background-color: white;
+    border-radius: 10px;
+    width: 90%;
+    height: 90%;
+    z-index: 999;
+}
+.modal8 {
+    display: flex;
+    flex-direction: row;
+    padding: 30px;
+    background-color: white;
+    border-radius: 10px;
+    width: 90%;
+    height: 90%;
+    z-index: 999;
+}
 
 
 

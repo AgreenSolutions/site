@@ -38,6 +38,30 @@
     </div>
 </div>
 
+
+ <!-- modais de mensagem de erro -->
+
+ <div class="modal-container1" id="modalcontainer1">
+    <div class="modal1">
+        <button onclick="Closeerro1()" class="fechar">X</button>
+        <span class="texto">Verifique se os campos estão preenchidos</span>
+    </div>
+</div>
+
+<div class="modal-container2" id="modalcontainer2">
+    <div class="modal2">
+        <button onclick="Closeerro2()" class="fechar">X</button>
+        <span class="texto">Login realizado com sucesso!</span>
+    </div>
+</div>
+
+<div class="modal-container3" id="modalcontainer3">
+    <div class="modal3">
+        <button onclick="Closeerro3()" class="fechar">X</button>
+        <span class="texto">Senha ou email incorretos!</span>
+    </div>
+</div>
+
 <script src="js/scriptLogin.js"></script>
 
 <script>
@@ -49,7 +73,8 @@
 
        if (emailVar == "" || senhaVar == "") {
            //cardErro.style.display = "block"
-           alert("Verifique se os campos estão preenchidos")
+           //alert("Verifique se os campos estão preenchidos")
+           modalcontainer1.style.display = 'block';
            //finalizarAguardar();
            return false;
        }
@@ -84,14 +109,16 @@
                    sessionStorage.ID_USUARIO = json.id;
 
                    setTimeout(function () {
-                        alert("Login realizado com sucesso!");
+                        // alert("Login realizado com sucesso!");
+                        modalcontainer2.style.display = 'block';
                        window.location = "./dashboard/dashboard.html";
                    }, 1000); // apenas para exibir o loading
 
                });
 
            } else {
-                alert("Senha ou email incorretos!");
+                // alert("Senha ou email incorretos!");
+                modalcontainer3.style.display = 'block';
                 inpEmail.style.borderColor = "red";
                 inpSenha.style.borderColor = "red";
                 inpSenha.style.transition = "1s";

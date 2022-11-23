@@ -4,6 +4,35 @@ const olho1 = document.querySelector(".btn1");
 const senha1 = document.querySelector(".senha1");
 
 
+// fechar alerts personalizados, tela de cadastro 1
+
+function Closeerro1() {
+  modalcontainer1.style.display = 'none';
+}
+
+function Closeerro2() {
+  modalcontainer2.style.display = 'none';
+}
+
+function Closeerro3() {
+  modalcontainer3.style.display = 'none';
+}
+
+function Closeerro4() {
+  modalcontainer4.style.display = 'none';
+}
+
+function Closeerro5() {
+  modalcontainer5.style.display = 'none';
+}
+
+function Closeerro6() {
+  modalcontainer6.style.display = 'none';
+}
+
+function Closeerro7() {
+  modalcontainer7.style.display = 'none';
+}
 
 olho.onclick = () => {
   if (senha.type === "password") {
@@ -32,27 +61,34 @@ function verify() {
   var email = inpEmail.value;
   var campos_validos = "no";
   if(nome == "" && senha == "" && confirmacao == "" && email == ""){
-    alert("Preencha todos os campos!");
+    // alert("Preencha todos os campos!");
+    modalcontainer1.style.display = 'block';
 
   }
   else if (nome == "") {
-    alert("Digite seu nome!");        
+    alert("Digite seu nome!"); 
+    modalcontainer2.style.display = 'block';       
                 
   } else if (email == "") {
-    alert("Digite o seu email");
+    // alert("Digite o seu email");
+    modalcontainer3.style.display = 'block';
 
   } else if (!email.includes("@") && !email.includes(".")) {
-    alert("Digite um email válido!");
+    // alert("Digite um email válido!");
+    modalcontainer4.style.display = 'block';
 
     inpEmail.placeholder = "Digite seu e-mail";
   } else if (senha == "") {
-    alert("Digite sua senha.");
+    // alert("Digite sua senha.");
+    modalcontainer5.style.display = 'block';
 
   } else if (confirmacao == "") {
-    alert("Não se esqueça de confirmar sua senha.");
+    // alert("Não se esqueça de confirmar sua senha.");
+    modalcontainer6.style.display = 'block';
 
   } else if (senha != confirmacao) {
-    alert("A senha e a confirmação não coincidem!");
+    // alert("A senha e a confirmação não coincidem!");
+    modalcontainer7.style.display = 'block';
   } else {
     campos_validos = "yes";
   }

@@ -1,3 +1,37 @@
+// // fechar alerts personalizados, tela de cadastro 2
+
+function Closeerro1() {
+    modalcontainer1.style.display = 'none';
+  }
+  
+  function Closeerro2() {
+    modalcontainer2.style.display = 'none';
+  }
+  
+  function Closeerro3() {
+    modalcontainer3.style.display = 'none';
+  }
+  
+  function Closeerro4() {
+    modalcontainer4.style.display = 'none';
+  }
+  
+  function Closeerro5() {
+    modalcontainer5.style.display = 'none';
+  }
+  
+  function Closeerro6() {
+    modalcontainer6.style.display = 'none';
+  }
+  
+  function Closeerro7() {
+    modalcontainer7.style.display = 'none';
+  }
+  
+  function Closeerro8() {
+    modalcontainer8.style.display = 'none';
+  }
+
 function cadastrar2() {
     var cep = ipt_cep.value
     var numero = ipt_numero.value
@@ -7,31 +41,41 @@ function cadastrar2() {
     var campos_validos = 'no'
 
     if (cep == '') {
-        alert('Digite seu CEP!')
+        // alert('Digite seu CEP!')
+        modalcontainer1.style.display = 'block';
     }
     else if (cep.length < 8 || cep.length > 8) {
-        alert('O CEP deve conter 8 números')
+        // alert('O CEP deve conter 8 números')
+        modalcontainer2.style.display = 'block';
     }
     else if (numero == '') {
-        alert('Digite o número!')
+        // alert('Digite o número!')
+        modalcontainer3.style.display = 'block';
     }
     else if (isNaN(numero)) {
-        alert('Por favor digite um número válido!')
+        // alert('Por favor digite um número válido!')
+        modalcontainer4.style.display = 'block';
     }
     else if (logradouro == '') {
-        alert('Digite o Logradouro!')
+        // alert('Digite o Logradouro!')
+        modalcontainer5.style.display = 'block';
     }
     else if (complemento == '') {
-        alert('Digite o complemento!')
+        // alert('Digite o complemento!')
+        modalcontainer6.style.display = 'block';
     }
     else if (cidade == '') {
-        alert('Digite sua Cidade!')
+        // alert('Digite sua Cidade!')
+        modalcontainer7.style.display = 'block';
     }
-    else{alert('Cadastro efetuado com sucesso!')
-    campos_validos = 'yes'
+    else{
+        // alert('Cadastro efetuado com sucesso!')
+        modalcontainer8.style.display = 'block';
+        campos_validos = 'yes'
     }
 
     if (campos_validos == 'yes') {
     window.location.replace("login.html")        
     }
 }
+

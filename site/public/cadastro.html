@@ -59,6 +59,59 @@
 
 
 
+ <!-- modais de mensagem de erro -->
+
+ <div class="modal-container1" id="modalcontainer1">
+    <div class="modal1">
+        <button onclick="Closeerro1()" class="fechar">X</button>
+        <span class="texto"><span class="texto1">Por favor preencha todos os campos!</span>
+    </div>
+</div>
+
+<div class="modal-container2" id="modalcontainer2">
+    <div class="modal2">
+        <button onclick="Closeerro2()" class="fechar">X</button>
+        <span class="texto">Digite seu nome!</span>
+    </div>
+</div>
+
+<div class="modal-container3" id="modalcontainer3">
+    <div class="modal3">
+        <button onclick="Closeerro3()" class="fechar">X</button>
+        <span class="texto">Digite o seu email!</span>
+    </div>
+</div>
+
+<div class="modal-container4" id="modalcontainer4">
+    <div class="modal4" class="fechar">
+        <button onclick="Closeerro4()" class="fechar">X</button>
+        <span class="texto">Digite um email válido!</span>
+    </div>
+</div>
+
+<div class="modal-container5" id="modalcontainer5">
+    <div class="modal5" class="fechar">
+        <button onclick="Closeerro5()" class="fechar">X</button>
+        <span class="texto">Digite sua senha!</span>
+    </div>
+</div>
+
+<div class="modal-container6" id="modalcontainer6">
+    <div class="modal6" class="fechar">
+        <button onclick="Closeerro6()" class="fechar">X</button>
+        <span class="texto">Não se esqueça de confirmar sua senha.</span>
+    </div>
+</div>
+
+<div class="modal-container7" id="modalcontainer7">
+    <div class="modal7" class="fechar">
+        <button onclick="Closeerro7()" class="fechar">X</button>
+        <span class="texto">A senha e a confirmação não coincidem!</span>
+    </div>
+</div>
+
+
+
 
 
 </body>
@@ -77,7 +130,7 @@
 
         if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmSenhaVar == "") {
             //cardErro.style.display = "block"
-            alert("Por favor preencha todos os campos!")
+            modalcontainer1.style.display = 'block';
 
             //finalizarAguardar();
             return false;
