@@ -637,22 +637,22 @@
 
   function obterdados(idSensor) {
     fetch(`/medidas/temp  o-real/${idSensor}`)
-      .then(resposta => {
+      .then(response => {
 
-        if (resposta.ok) {
-          resposta.json().then(resposta => {
+        if (response.ok) {
+          response.json().then(response => {
 
-            console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-            console.log(resposta[0].temperatura)
-            console.log(resposta[0].umidade)
-            temp.innerHTML = resposta[0].temperatura + "°C";
+            console.log(`Dados recebidos: ${JSON.stringify(response)}`);
+            console.log(response[0].temperatura)
+            console.log(response[0].umidade)
+            temp.innerHTML = response[0].temperatura + "°C";
             var dados = {
-              temperatura: resposta[0].temperatura,
-              umidade: resposta[0].umidade
+              temperatura: response[0].temperatura,
+              umidade: response[0].umidade
             }
 
 
-            alertar(resposta[0].temperatura, resposta[0].umidade, idSensor);
+            alertar(response[0].temperatura, response[0].umidade, idSensor);
 
           });
         } else {
@@ -764,19 +764,19 @@
 
     fetch(`/medidas/ultimas/${idSensor}`, { cache: 'no-store' }).then(function (response) {
       if (response.ok) {
-        response.json().then(function (resposta) {
-          console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+        response.json().then(function (response) {
+          console.log(`Dados recebidos: ${JSON.stringify(response)}`);
           console.log("SENSOR ID: " + idSensor)
-          resposta.reverse();
+          response.reverse();
 
           if (idSensor == 1) {
-            plotarGrafico(resposta, idSensor);
+            plotarGrafico(response, idSensor);
           } else if (idSensor == 2) {
-            plotarGrafico2(resposta, idSensor);
+            plotarGrafico2(response, idSensor);
           } else if (idSensor == 3) {
-            plotarGrafico3(resposta, idSensor);
+            plotarGrafico3(response, idSensor);
           } else {
-            plotarGrafico4(resposta, idSensor);
+            plotarGrafico4(response, idSensor);
           }
 
 
@@ -798,7 +798,7 @@
   // Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
   // Configura o gráfico (cores, tipo, etc), materializa-o na página e, 
   // A função *plotarGrafico* também invoca a função *atualizarGrafico*
-  function plotarGrafico(resposta, idSensor) {
+  function plotarGrafico(response, idSensor) {
 
     console.log('iniciando plotagem do gráfico...');
 
@@ -831,12 +831,13 @@
 
     console.log('----------------------------------------------')
     console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
-    console.log(resposta)
+    console.log(response)
 
     // Inserindo valores recebidos em estrutura para plotar o gráfico
-    for (i = 0; i < resposta.length; i++) {
-      var registro = resposta[i];
-      labels.push(registro.momento_grafico);
+    for (i = 0; i < response.length; i++) {
+      console.log("Registro ", response[i])
+      var registro = response[i];
+      labels.push(registro.data_horario);
       dados.datasets[0].data.push(registro.umidade);
       dados2.datasets[0].data.push(registro.temperatura);
     }
@@ -847,6 +848,7 @@
     console.log(labels)
     console.log('Dados:')
     console.log(dados.datasets)
+    console.log('Dados22:')
     console.log(dados2.datasets)
     console.log('----------------------------------------------')
 
@@ -885,7 +887,7 @@
 
   }
 
-  function plotarGrafico2(resposta, idSensor) {
+  function plotarGrafico2(response, idSensor) {
 
     console.log('iniciando plotagem do gráfico...');
 
@@ -918,12 +920,13 @@
 
     console.log('----------------------------------------------')
     console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
-    console.log(resposta)
+    console.log(response)
 
     // Inserindo valores recebidos em estrutura para plotar o gráfico
-    for (i = 0; i < resposta.length; i++) {
-      var registro = resposta[i];
-      labels.push(registro.momento_grafico);
+    for (i = 0; i < response.length; i++) {
+      console.log("Registro ", registro[i])
+      var registro = response[i];
+      labels.push(registro.data_horario);
       dados.datasets[0].data.push(registro.umidade);
       dados2.datasets[0].data.push(registro.temperatura);
     }
@@ -967,12 +970,12 @@
 
 
 
-    setTimeout(() => atualizarGrafico(idSensor, dados, myChart3), 2000);
-    setTimeout(() => atualizarGrafico(idSensor, dados, myChart4), 2000);
+    setTimeout(() => atualizarGrafico(idSensor, dados,dados2, myChart3), 2000);
+    setTimeout(() => atualizarGrafico(idSensor, dados,dados2, myChart4), 2000);
 
   }
 
-  function plotarGrafico3(resposta, idSensor) {
+  function plotarGrafico3(response, idSensor) {
 
     console.log('iniciando plotagem do gráfico...');
 
@@ -1005,12 +1008,13 @@
 
     console.log('----------------------------------------------')
     console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
-    console.log(resposta)
+    console.log(response)
 
     // Inserindo valores recebidos em estrutura para plotar o gráfico
-    for (i = 0; i < resposta.length; i++) {
-      var registro = resposta[i];
-      labels.push(registro.momento_grafico);
+    for (i = 0; i < response.length; i++) {
+      console.log("Registro ", registro[i])
+      var registro = response[i];
+      labels.push(registro.data_horario);
       dados.datasets[0].data.push(registro.umidade);
       dados2.datasets[0].data.push(registro.temperatura);
     }
@@ -1054,12 +1058,12 @@
 
 
 
-    setTimeout(() => atualizarGrafico(idSensor, dados, myChart5), 2000);
-    setTimeout(() => atualizarGrafico(idSensor, dados, myChart6), 2000);
+    setTimeout(() => atualizarGrafico(idSensor, dados,dados2, myChart5), 2000);
+    setTimeout(() => atualizarGrafico(idSensor, dados,dados2, myChart6), 2000);
 
   }
 
-  function plotarGrafico4(resposta, idSensor) {
+  function plotarGrafico4(response, idSensor) {
 
     console.log('iniciando plotagem do gráfico...');
 
@@ -1092,12 +1096,13 @@
 
     console.log('----------------------------------------------')
     console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
-    console.log(resposta)
+    console.log(response)
 
     // Inserindo valores recebidos em estrutura para plotar o gráfico
-    for (i = 0; i < resposta.length; i++) {
-      var registro = resposta[i];
-      labels.push(registro.momento_grafico);
+    for (i = 0; i < response.length; i++) {
+      console.log("Registro ", registro[i])
+      var registro = response[i];
+      labels.push(registro.data_horario);
       dados.datasets[0].data.push(registro.umidade);
       dados2.datasets[0].data.push(registro.temperatura);
     }
@@ -1141,8 +1146,8 @@
 
 
 
-    setTimeout(() => atualizarGrafico(idSensor, dados, myChart7), 2000);
-    setTimeout(() => atualizarGrafico(idSensor, dados, myChart8), 2000);
+    setTimeout(() => atualizarGrafico(idSensor, dados,dados2 ,myChart7), 2000);
+    setTimeout(() => atualizarGrafico(idSensor, dados,dados2, myChart8), 2000);
 
   }
 
@@ -1164,39 +1169,45 @@
           console.log(dados2)
 
           // document.getElementById("avisoCaptura").innerHTML = ""
-
-          if (novoRegistro[0].momento_grafico == dados.labels[dados.labels.length - 1]) {
+          console.log("NOVO REGISTRO ", novoRegistro[0].data_horario)
+          console.log("AAAA ", dados.labels[dados.labels.length - 1])
+          console.log("DADOS 1", dados)
+          console.log("DADOS 2 ", dados2)
+          if (novoRegistro[0].data_horario == dados.labels[dados.labels.length - 1]) {
             console.log("---------------------------------------------------------------")
             console.log("Como não há dados novos para captura, o gráfico não atualizará.")
             // document.getElementById("avisoCaptura").innerHTML = "<i class='fa-solid fa-triangle-exclamation'></i> Foi trazido o dado mais atual capturado pelo sensor. <br> Como não há dados novos a exibir, o gráfico não atualizará."
             console.log("Horário do novo dado capturado:")
-            console.log(novoRegistro[0].momento_grafico)
+            console.log(novoRegistro[0].data_horario)
             console.log("Horário do último dado capturado:")
             console.log(dados.labels[dados.labels.length - 1])
             console.log("---------------------------------------------------------------")
           } else {
             // tirando e colocando valores no gráfico
             dados.labels.shift(); // apagar o primeiro
-            dados.labels.push(novoRegistro[0].momento_grafico); // incluir um novo momento
-            dados2.labels.shift(); // apagar o primeiro
-            dados2.labels.push(novoRegistro[0].momento_grafico); // incluir um novo momento
+            dados.labels.push(novoRegistro[0].data_horario); // incluir um novo momento
 
             dados.datasets[0].data.shift();  // apagar o primeiro de umidade
-            dados.datasets[0].data.push(novoRegistro[0].umidade); // incluir uma nova medida de umidade
+            dados.datasets[0].data.push(novoRegistro[0].temperatura); // incluir uma nova medida de umidade
 
-            dados2.datasets[1].data.shift();  // apagar o primeiro de temperatura
-            dados2.datasets[1].data.push(novoRegistro[0].temperatura); // incluir uma nova medida de temperatura
+            dados2.labels[0].shift(); // apagar o primeiro
+            dados2.labels[0].push(novoRegistro[0].data_horario); // incluir um novo momento
+
+            dados2.datasets[0].data.shift();  // apagar o primeiro de umidade
+            dados2.datasets[0].data.push(novoRegistro[0].umidade); // incluir uma nova medida de umidade
+
+           
 
             myChart.update();
           }
 
           // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-          proximaAtualizacao = setTimeout(() => atualizarGrafico(idSensor, dados, myChart), 2000);
+          proximaAtualizacao = setTimeout(() => atualizarGrafico(idSensor, dados,dados2, myChart), 2000);
         });
       } else {
         console.error('Nenhum dado encontrado ou erro na API');
         // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-        proximaAtualizacao = setTimeout(() => atualizarGrafico(idSensor, dados, myChart), 2000);
+        proximaAtualizacao = setTimeout(() => atualizarGrafico(idSensor, dados,dados2, myChart), 2000);
       }
     })
       .catch(function (error) {
