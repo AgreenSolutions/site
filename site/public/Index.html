@@ -99,7 +99,7 @@
         var telefone = ipt_telefone.value
         var mensagem = ipt_mensagem.value
         
-        fetch("/contato", {
+        fetch("/usuarios/contatos", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -110,26 +110,26 @@
                 nomeServer: nome_contato,
                 emailServer: email_contato,
                 telefoneServer: telefone,
-                mensagemServer: mensagem,
+                mensagemServer: mensagem
+
             })
         }).then(function (resposta) {
 
             console.log("resposta: ", resposta);
 
-            if (resposta.ok) {
-                //cardErro.style.display = "block";
-                console.log("Cadastro realizado com sucesso! Redirecionando para a próxima tela de cadastro...")
+            if(resposta.ok) {
+                alert("Mensagem enviada com sucesso!")
+            }else {
+                alert("Erro ao enviar mensagem!")
+            }
 
-                setTimeout(() => {
-                    window.location = "./index.html";
-                }, "2000")
-                
-                //limparFormulario();
-                //finalizarAguardar();
-            } else {
+            
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+            //finalizarAguardar();
+        });
 
-                throw ("Houve um erro ao tentar realizar o cadastro!");
-            }})
+        return false;
     }
 
 </script>

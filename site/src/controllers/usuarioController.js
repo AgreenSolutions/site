@@ -134,8 +134,23 @@ function contato(req, res) {
     }else if (mensagem == undefined) {
         res.status(400).send("Sua Mensagem está undefined!");
     } else {
-        console.log(nome,email,telefone,mensagem)
-        usuarioModel.contato(nome, email, telefone,mensagem)   
+
+
+        usuarioModel.contato(nome, email, telefone,mensagem)
+        .then(
+            function (resultado) {
+                console.log(resultado);
+
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "\nHouve um erro ao realizar o cadastro! Erro: ",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            });
     }
 }
 
