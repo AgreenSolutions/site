@@ -71,11 +71,11 @@
             <div class="form-flex">
                 <div class="form">
                     <h1>Entre em contato</h1>
-                    <input type="text" placeholder="Nome">
-                    <input type="email" placeholder="Email">
-                    <input type="text" placeholder="Telefone">
-                    <textarea placeholder="Mensagem"></textarea>
-                    <button class="btn" onclick="enviar()">Enviar</button>
+                    <input type="text" id="ipt_nome" placeholder="Nome">
+                    <input type="email" id="ipt_email" placeholder="Email">
+                    <input type="text" id="ipt_telefone" placeholder="Telefone">
+                    <textarea placeholder="Mensagem" id="ipt_mensagem"></textarea>
+                    <button class="btn" onclick="contato()">Enviar</button>
                 </div>
             </div>
         </div>
@@ -91,3 +91,45 @@
 
 </html>
 
+<script>
+
+    function contato() {
+        var nome_contato = ipt_nome.value
+        var email_contato = ipt_email.value
+        var telefone = ipt_telefone.value
+        var mensagem = ipt_mensagem.value
+        
+        fetch("/contato", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                nomeServer: nome_contato,
+                emailServer: email_contato,
+                telefoneServer: telefone,
+                mensagemServer: mensagem,
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                //cardErro.style.display = "block";
+                console.log("Cadastro realizado com sucesso! Redirecionando para a próxima tela de cadastro...")
+
+                setTimeout(() => {
+                    window.location = "./index.html";
+                }, "2000")
+                
+                //limparFormulario();
+                //finalizarAguardar();
+            } else {
+
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }})
+    }
+
+</script>

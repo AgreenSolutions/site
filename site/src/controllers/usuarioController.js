@@ -114,16 +114,35 @@ function cadastrar(req, res) {
     
     }
 }
+    
+function contato(req, res) {
+    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
+    var nome = req.body.nomeServer;
+    var email = req.body.emailServer;
+    var telefone = req.body.telefoneServer;
+    var mensagem = req.body.mensagemServer;
+    
+    
 
-
-
-
-
-
+    // Faça as validações dos valores
+    if (nome == undefined) {
+        res.status(400).send("Seu nome está undefined!");
+    } else if (email == undefined) {
+        res.status(400).send("Seu email está undefined!");
+    }else if (telefone == undefined) {
+        res.status(400).send("Seu telefone está undefined!");
+    }else if (mensagem == undefined) {
+        res.status(400).send("Sua Mensagem está undefined!");
+    } else {
+        console.log(nome,email,telefone,mensagem)
+        usuarioModel.contato(nome, email, telefone,mensagem)   
+    }
+}
 
 module.exports = {
     entrar,
     cadastrar,
     listar,
-    testar
+    testar,
+    contato,
 }
