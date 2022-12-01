@@ -729,6 +729,7 @@
   p_usuario.innerHTML = "Olá " + sessionStorage.NOME_USUARIO;
 
   var proximaAtualizacao;
+  var proximaAtualizacao2;
 
   window.onload = obterDadosGrafico(1);
   window.onload = obterDadosGrafico(2);
@@ -760,6 +761,9 @@
 
     if (proximaAtualizacao != undefined) {
       clearTimeout(proximaAtualizacao);
+    }
+    if(proximaAtualizacao2 != undefined){
+      clearTimeout(proximaAtualizacao2);
     }
 
     fetch(`/medidas/ultimas/${idSensor}`, { cache: 'no-store' }).then(function (response) {
@@ -837,9 +841,9 @@
     for (i = 0; i < response.length; i++) {
       console.log("Registro ", response[i])
       var registro = response[i];
-      labels.push(registro.data_horario);
-      dados.datasets[0].data.push(registro.umidade);
-      dados2.datasets[0].data.push(registro.temperatura);
+      labels.push(registro.momento_grafico);
+      dados.datasets[0].data.push(registro.temperatura);
+      dados2.datasets[0].data.push(registro.umidade);
     }
 
     console.log('----------------------------------------------')
@@ -855,11 +859,11 @@
     // Criando estrutura para plotar gráfico - config
     const config = {
       type: 'line',
-      data: dados2,
+      data: dados,
     };
     const config2 = {
       type: 'bar',
-      data: dados,
+      data: dados2,
     };
 
     // Adicionando gráfico criado em div na tela
@@ -882,8 +886,7 @@
 
 
 
-    setTimeout(() => atualizarGrafico(idSensor, dados, dados2, myChart), 2000);
-    setTimeout(() => atualizarGrafico(idSensor, dados, dados2, myChart2), 2000);
+    setTimeout(() => atualizarGrafico(idSensor, dados, myChart), 5000);
 
   }
 
@@ -970,8 +973,8 @@
 
 
 
-    setTimeout(() => atualizarGrafico(idSensor, dados,dados2, myChart3), 2000);
-    setTimeout(() => atualizarGrafico(idSensor, dados,dados2, myChart4), 2000);
+    // setTimeout(() => atualizarGrafico(idSensor, dados,dados2, myChart3), 2000);
+    // setTimeout(() => atualizarGrafico(idSensor, dados,dados2, myChart4), 2000);
 
   }
 
@@ -1058,8 +1061,8 @@
 
 
 
-    setTimeout(() => atualizarGrafico(idSensor, dados,dados2, myChart5), 2000);
-    setTimeout(() => atualizarGrafico(idSensor, dados,dados2, myChart6), 2000);
+    // setTimeout(() => atualizarGrafico(idSensor, dados,dados2, myChart5), 2000);
+    // setTimeout(() => atualizarGrafico(idSensor, dados,dados2, myChart6), 2000);
 
   }
 
@@ -1146,8 +1149,8 @@
 
 
 
-    setTimeout(() => atualizarGrafico(idSensor, dados,dados2 ,myChart7), 2000);
-    setTimeout(() => atualizarGrafico(idSensor, dados,dados2, myChart8), 2000);
+    // setTimeout(() => atualizarGrafico(idSensor, dados,dados2 ,myChart7), 2000);
+    // setTimeout(() => atualizarGrafico(idSensor, dados,dados2, myChart8), 2000);
 
   }
 
@@ -1157,23 +1160,23 @@
 
   //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
   //     Para ajustar o "select", ajuste o comando sql em src/models
-  function atualizarGrafico(idSensor, dados, dados2, myChart) {
+  function atualizarGrafico(idSensor, dados, myChart) {
 
     fetch(`/medidas/tempo-real/${idSensor}`, { cache: 'no-store' }).then(function (response) {
       if (response.ok) {
         response.json().then(function (novoRegistro) {
 
           console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
-          console.log(`Dados atuais do gráfico:`);
+          console.log(`Dados atuais do gráfico: `);
           console.log(dados);
-          console.log(dados2)
 
           // document.getElementById("avisoCaptura").innerHTML = ""
           console.log("NOVO REGISTRO ", novoRegistro[0].data_horario)
           console.log("AAAA ", dados.labels[dados.labels.length - 1])
           console.log("DADOS 1", dados)
-          console.log("DADOS 2 ", dados2)
+
           if (novoRegistro[0].data_horario == dados.labels[dados.labels.length - 1]) {
+            console.log("IF")
             console.log("---------------------------------------------------------------")
             console.log("Como não há dados novos para captura, o gráfico não atualizará.")
             // document.getElementById("avisoCaptura").innerHTML = "<i class='fa-solid fa-triangle-exclamation'></i> Foi trazido o dado mais atual capturado pelo sensor. <br> Como não há dados novos a exibir, o gráfico não atualizará."
@@ -1183,31 +1186,25 @@
             console.log(dados.labels[dados.labels.length - 1])
             console.log("---------------------------------------------------------------")
           } else {
+            console.log("ELSE")
+            console.log("---------------------------------------------------------------")
+            console.log("Como há dados novos para captura, o gráfico será atualizado.")
             // tirando e colocando valores no gráfico
             dados.labels.shift(); // apagar o primeiro
             dados.labels.push(novoRegistro[0].data_horario); // incluir um novo momento
 
             dados.datasets[0].data.shift();  // apagar o primeiro de umidade
             dados.datasets[0].data.push(novoRegistro[0].temperatura); // incluir uma nova medida de umidade
-
-            dados2.labels[0].shift(); // apagar o primeiro
-            dados2.labels[0].push(novoRegistro[0].data_horario); // incluir um novo momento
-
-            dados2.datasets[0].data.shift();  // apagar o primeiro de umidade
-            dados2.datasets[0].data.push(novoRegistro[0].umidade); // incluir uma nova medida de umidade
-
-           
-
             myChart.update();
           }
 
           // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-          proximaAtualizacao = setTimeout(() => atualizarGrafico(idSensor, dados,dados2, myChart), 2000);
+          proximaAtualizacao = setTimeout(() => atualizarGrafico(idSensor, dados, myChart), 2000);
         });
       } else {
         console.error('Nenhum dado encontrado ou erro na API');
         // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-        proximaAtualizacao = setTimeout(() => atualizarGrafico(idSensor, dados,dados2, myChart), 2000);
+        proximaAtualizacao = setTimeout(() => atualizarGrafico(idSensor, dados, myChart), 2000);
       }
     })
       .catch(function (error) {
@@ -1215,6 +1212,12 @@
       });
 
   }
+
+
+
+ 
+
+
 
 </script>
 
