@@ -1,6 +1,7 @@
 const modal = document.querySelector('.modal-container')
 
 function openModal() {
+  kpis()
   modal.classList.add('active')
 }
 
