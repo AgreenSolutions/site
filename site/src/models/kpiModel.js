@@ -9,7 +9,7 @@ function buscarKpi1() {
     return database.executar(instrucao);
 }
 function buscarKpi2() {
-    var instrucao = `select max(umidade) as max from leitura;`
+    var instrucao = `select max(umidade) as min from leitura;`
 
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);

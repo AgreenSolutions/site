@@ -1,5 +1,4 @@
 
-var kpi1U = document.getElementById("kpi1MaxU");
 
 
 // Modal 1
@@ -15,20 +14,18 @@ fetch ("/kpi/kpi1").then(response => {
         })
     }
 })
-}
-function kpis() {
+
 fetch ("/kpi/kpi2").then(response => {
     console.log(response);
 
     if(response.ok) {
         response.json().then(data => {
             console.log("AAAAAAAAA ",data);
-            kpi1MaxU.innerHTML = data[0].max+"°C";
+            kpi1MaxU.innerHTML = data[0].min+"°C";
         })
     }
 })
-}
-function kpis() {
+
 fetch ("/kpi/kpi3").then(response => {
     console.log(response);
 
@@ -39,8 +36,7 @@ fetch ("/kpi/kpi3").then(response => {
         })
     }
 })
-}
-function kpis() {
+
 fetch ("/kpi/kpi4").then(response => {
     console.log(response);
 
@@ -51,8 +47,8 @@ fetch ("/kpi/kpi4").then(response => {
         })
     }
 })
-}
-function kpis() {
+
+
 fetch ("/kpi/kpi5").then(response => {
     console.log(response);
 
@@ -63,8 +59,8 @@ fetch ("/kpi/kpi5").then(response => {
         })
     }
 })
-}
-function kpis() {
+
+
 fetch ("/kpi/kpi6").then(response => {
     console.log(response);
 
@@ -75,11 +71,11 @@ fetch ("/kpi/kpi6").then(response => {
         })
     }
 })
-}
+
 
 // Modal 2
 
-function kpis() {
+
 fetch ("/kpi/kpi7").then(response => {
     console.log(response);
 
@@ -90,8 +86,7 @@ fetch ("/kpi/kpi7").then(response => {
         })
     }
 })
-}
-function kpis() {
+
 fetch ("/kpi/kpi8").then(response => {
     console.log(response);
 
@@ -102,8 +97,7 @@ fetch ("/kpi/kpi8").then(response => {
         })
     }
 })
-}
-function kpis() {
+
 fetch ("/kpi/kpi9").then(response => {
     console.log(response);
 
@@ -114,8 +108,8 @@ fetch ("/kpi/kpi9").then(response => {
         })
     }
 })
-}
-function kpis() {
+
+
 fetch ("/kpi/kpi10").then(response => {
     console.log(response);
 
@@ -126,8 +120,8 @@ fetch ("/kpi/kpi10").then(response => {
         })
     }
 })
-}
-function kpis() {
+
+
 fetch ("/kpi/kpi11").then(response => {
     console.log(response);
 
@@ -138,8 +132,8 @@ fetch ("/kpi/kpi11").then(response => {
         })
     }
 })
-}
-function kpis() {
+
+
 fetch ("/kpi/kpi12").then(response => {
     console.log(response);
 
@@ -150,11 +144,11 @@ fetch ("/kpi/kpi12").then(response => {
         })
     }
 })
-}
+
 
 // Modal 3
 
-function kpis() {
+
 fetch ("/kpi/kpi13").then(response => {
     console.log(response);
 
@@ -165,8 +159,7 @@ fetch ("/kpi/kpi13").then(response => {
         })
     }
 })
-}
-function kpis() {
+
 fetch ("/kpi/kpi14").then(response => {
     console.log(response);
 
@@ -177,8 +170,8 @@ fetch ("/kpi/kpi14").then(response => {
         })
     }
 })
-}
-function kpis() {
+
+
 fetch ("/kpi/kpi15").then(response => {
     console.log(response);
 
@@ -189,20 +182,20 @@ fetch ("/kpi/kpi15").then(response => {
         })
     }
 })
-}
-function kpis() {
+
+
 fetch ("/kpi/kpi16").then(response => {
     console.log(response);
 
     if(response.ok) {
         response.json().then(data => {
             console.log("AAAAAAAAA ",data);
-            kpi1MinU3.innerHTML = data[0].max+"°C";
+            kpi1MinU3.innerHTML = data[0].max+"%";
         })
     }
 })
-}
-function kpis() {
+
+
 fetch ("/kpi/kpi17").then(response => {
     console.log(response);
 
@@ -213,8 +206,8 @@ fetch ("/kpi/kpi17").then(response => {
         })
     }
 })
-}
-function kpis() {
+
+
 fetch ("/kpi/kpi18").then(response => {
     console.log(response);
 
@@ -225,11 +218,11 @@ fetch ("/kpi/kpi18").then(response => {
         })
     }
 })
-}
+
 
 // Modal 4
 
-function kpis() {
+
 fetch ("/kpi/kpi19").then(response => {
     console.log(response);
 
@@ -240,8 +233,8 @@ fetch ("/kpi/kpi19").then(response => {
         })
     }
 })
-}
-function kpis() {
+
+
 fetch ("/kpi/kpi20").then(response => {
     console.log(response);
 
@@ -252,8 +245,8 @@ fetch ("/kpi/kpi20").then(response => {
         })
     }
 })
-}
-function kpis() {
+
+
 fetch ("/kpi/kpi21").then(response => {
     console.log(response);
 
@@ -264,8 +257,8 @@ fetch ("/kpi/kpi21").then(response => {
         })
     }
 })
-}
-function kpis() {
+
+
 fetch ("/kpi/kpi22").then(response => {
     console.log(response);
 
@@ -276,8 +269,8 @@ fetch ("/kpi/kpi22").then(response => {
         })
     }
 })
-}
-function kpis() {
+
+
 fetch ("/kpi/kpi23").then(response => {
     console.log(response);
 
@@ -288,8 +281,8 @@ fetch ("/kpi/kpi23").then(response => {
         })
     }
 })
-}
-function kpis() {
+
+
 fetch ("/kpi/kpi24").then(response => {
     console.log(response);
 
