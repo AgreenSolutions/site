@@ -2,296 +2,132 @@
 
 
 // Modal 1
-
-function kpis() {
-fetch ("/kpi/kpi1").then(response => {
-    console.log(response);
-
-    if(response.ok) {
-        response.json().then(data => {
-            console.log("AAAAAAAAA ",data);
-            kpi1Max.innerHTML = data[0].max+"°C";
-        })
-    }
-})
-
-fetch ("/kpi/kpi2").then(response => {
-    console.log(response);
-
-    if(response.ok) {
-        response.json().then(data => {
-            console.log("AAAAAAAAA ",data);
-            kpi1MaxU.innerHTML = data[0].min+"°C";
-        })
-    }
-})
-
-fetch ("/kpi/kpi3").then(response => {
-    console.log(response);
-
-    if(response.ok) {
-        response.json().then(data => {
-            console.log("AAAAAAAAA ",data);
-            kpi1Min.innerHTML = data[0].max+"°C";
-        })
-    }
-})
-
-fetch ("/kpi/kpi4").then(response => {
-    console.log(response);
-
-    if(response.ok) {
-        response.json().then(data => {
-            console.log("AAAAAAAAA ",data);
-            kpi1MinU.innerHTML = data[0].max+"°C";
-        })
-    }
-})
-
-
-fetch ("/kpi/kpi5").then(response => {
-    console.log(response);
-
-    if(response.ok) {
-        response.json().then(data => {
-            console.log("AAAAAAAAA ",data);
-            kpi1Var.innerHTML = data[0].max+"°C";
-        })
-    }
-})
-
-
-fetch ("/kpi/kpi6").then(response => {
-    console.log(response);
-
-    if(response.ok) {
-        response.json().then(data => {
-            console.log("AAAAAAAAA ",data);
-            kpi1VarU.innerHTML = data[0].max+"°C";
-        })
-    }
-})
-
-
-// Modal 2
-
-
-fetch ("/kpi/kpi7").then(response => {
-    console.log(response);
-
-    if(response.ok) {
-        response.json().then(data => {
-            console.log("AAAAAAAAA ",data);
-            kpi1Max2.innerHTML = data[0].max+"°C";
-        })
-    }
-})
-
-fetch ("/kpi/kpi8").then(response => {
-    console.log(response);
-
-    if(response.ok) {
-        response.json().then(data => {
-            console.log("AAAAAAAAA ",data);
-            kpi1MaxU2.innerHTML = data[0].max+"°C";
-        })
-    }
-})
-
-fetch ("/kpi/kpi9").then(response => {
-    console.log(response);
-
-    if(response.ok) {
-        response.json().then(data => {
-            console.log("AAAAAAAAA ",data);
-            kpi1Min2.innerHTML = data[0].max+"°C";
-        })
-    }
-})
-
-
-fetch ("/kpi/kpi10").then(response => {
-    console.log(response);
-
-    if(response.ok) {
-        response.json().then(data => {
-            console.log("AAAAAAAAA ",data);
-            kpi1MinU2.innerHTML = data[0].max+"°C";
-        })
-    }
-})
-
-
-fetch ("/kpi/kpi11").then(response => {
-    console.log(response);
-
-    if(response.ok) {
-        response.json().then(data => {
-            console.log("AAAAAAAAA ",data);
-            kpi1Var2.innerHTML = data[0].max+"°C";
-        })
-    }
-})
-
-
-fetch ("/kpi/kpi12").then(response => {
-    console.log(response);
-
-    if(response.ok) {
-        response.json().then(data => {
-            console.log("AAAAAAAAA ",data);
-            kpi1VarU2.innerHTML = data[0].max+"°C";
-        })
-    }
-})
-
-
-// Modal 3
-
-
-fetch ("/kpi/kpi13").then(response => {
-    console.log(response);
-
-    if(response.ok) {
-        response.json().then(data => {
-            console.log("AAAAAAAAA ",data);
-            kpi1Max3.innerHTML = data[0].max+"°C";
-        })
-    }
-})
-
-fetch ("/kpi/kpi14").then(response => {
-    console.log(response);
-
-    if(response.ok) {
-        response.json().then(data => {
-            console.log("AAAAAAAAA ",data);
-            kpi1MaxU3.innerHTML = data[0].max+"°C";
-        })
-    }
-})
-
-
-fetch ("/kpi/kpi15").then(response => {
-    console.log(response);
-
-    if(response.ok) {
-        response.json().then(data => {
-            console.log("AAAAAAAAA ",data);
-            kpi1Min3.innerHTML = data[0].max+"°C";
-        })
-    }
-})
-
-
-fetch ("/kpi/kpi16").then(response => {
-    console.log(response);
-
-    if(response.ok) {
-        response.json().then(data => {
-            console.log("AAAAAAAAA ",data);
-            kpi1MinU3.innerHTML = data[0].max+"%";
-        })
-    }
-})
-
-
-fetch ("/kpi/kpi17").then(response => {
-    console.log(response);
-
-    if(response.ok) {
-        response.json().then(data => {
-            console.log("AAAAAAAAA ",data);
-            kpi1Var3.innerHTML = data[0].max+"°C";
-        })
-    }
-})
-
-
-fetch ("/kpi/kpi18").then(response => {
-    console.log(response);
-
-    if(response.ok) {
-        response.json().then(data => {
-            console.log("AAAAAAAAA ",data);
-            kpi1VarU3.innerHTML = data[0].max+"°C";
-        })
-    }
-})
-
-
-// Modal 4
-
-
-fetch ("/kpi/kpi19").then(response => {
-    console.log(response);
-
-    if(response.ok) {
-        response.json().then(data => {
-            console.log("AAAAAAAAA ",data);
-            kpi1Max4.innerHTML = data[0].max+"°C";
-        })
-    }
-})
-
-
-fetch ("/kpi/kpi20").then(response => {
-    console.log(response);
-
-    if(response.ok) {
-        response.json().then(data => {
-            console.log("AAAAAAAAA ",data);
-            kpi1MaxU4.innerHTML = data[0].max+"°C";
-        })
-    }
-})
-
-
-fetch ("/kpi/kpi21").then(response => {
-    console.log(response);
-
-    if(response.ok) {
-        response.json().then(data => {
-            console.log("AAAAAAAAA ",data);
-            kpi1Min4.innerHTML = data[0].max+"°C";
-        })
-    }
-})
-
-
-fetch ("/kpi/kpi22").then(response => {
-    console.log(response);
-
-    if(response.ok) {
-        response.json().then(data => {
-            console.log("AAAAAAAAA ",data);
-            kpi1MinU4.innerHTML = data[0].max+"°C";
-        })
-    }
-})
-
-
-fetch ("/kpi/kpi23").then(response => {
-    console.log(response);
-
-    if(response.ok) {
-        response.json().then(data => {
-            console.log("AAAAAAAAA ",data);
-            kpi1Var4.innerHTML = data[0].max+"°C";
-        })
-    }
-})
-
-
-fetch ("/kpi/kpi24").then(response => {
-    console.log(response);
-
-    if(response.ok) {
-        response.json().then(data => {
-            console.log("AAAAAAAAA ",data);
-            kpi1VarU4.innerHTML = data[0].max+"°C";
-        })
-    }
-})
+function kpi(idSensor) {
+
+    fetch (`/kpi/kpi1/${idSensor}`).then(response => {
+        console.log(response);
+    
+        if(response.ok) {
+            response.json().then(data => {
+                if(idSensor == 1){
+                    kpi1Max.innerHTML = data[0].max+"°C";
+                }else if(idSensor == 2){
+                    kpi1Max.innerHTML = data[0].max+"°C";
+                }else if(idSensor == 3){
+                    kpi1Max.innerHTML = data[0].max+"°C";
+                }else {
+                    kpi1Max.innerHTML = data[0].max+"°C";
+                }
+
+            })
+        }
+    })
+
+    fetch (`/kpi/kpi2/${idSensor}`).then(response => {
+        console.log(response);
+    
+        if(response.ok) {
+            response.json().then(data => {
+                if(idSensor == 1){
+                    kpi1MaxU.innerHTML = data[0].max+"%";
+                }else if(idSensor == 2){
+                    kpi1MaxU.innerHTML = data[0].max+"%";
+                }else if(idSensor == 3){
+                    kpi1MaxU.innerHTML = data[0].max+"%";
+                }else {
+                    kpi1MaxU.innerHTML = data[0].max+"%";
+                }
+
+            })
+        }
+    })
+
+
+    fetch (`/kpi/kpi3/${idSensor}`).then(response => {
+        console.log(response);
+    
+        if(response.ok) {
+            response.json().then(data => {
+                if(idSensor == 1){
+                    kpi1Min.innerHTML = data[0].min+"°C";
+                }else if(idSensor == 2){
+                    kpi1Min.innerHTML = data[0].min+"°C";
+                }else if(idSensor == 3){
+                    kpi1Min.innerHTML = data[0].min+"°C";
+                }else {
+                    kpi1Min.innerHTML = data[0].min+"°C";
+                }
+
+            })
+        }
+    })
+    
+    fetch (`/kpi/kpi4/${idSensor}`).then(response => {
+        console.log(response);
+    
+        if(response.ok) {
+            response.json().then(data => {
+                if(idSensor == 1){
+                    kpi1MinU.innerHTML = data[0].min+"%";
+                }else if(idSensor == 2){
+                    kpi1MinU.innerHTML = data[0].min+"%";
+                }else if(idSensor == 3){
+                    kpi1MinU.innerHTML = data[0].min+"%";
+                }else {
+                    kpi1MinU.innerHTML = data[0].min+"%";
+                }
+            })
+        }
+    })
+    
+    
+    fetch (`/kpi/kpi5/${idSensor}`).then(response => {
+        console.log(response);
+    
+        if(response.ok) {
+            response.json().then(data => {
+                var variacao = data[0].temp - data[1].temp;
+                if(idSensor == 1){
+                    kpi1Var.innerHTML = variacao.toFixed(1)+"°C";
+                    varr.innerHTML ="Variação de temperatura: " + variacao.toFixed(1)+"°C";
+                }else if(idSensor == 2){
+                    kpi1Var.innerHTML = variacao.toFixed(1)+"°C";
+                    var2.innerHTML ="Variação de umidade: " + variacao.toFixed(1)+"°C";
+                }else if(idSensor == 3){
+                    kpi1Var.innerHTML = variacao.toFixed(1)+"°C";
+                    var3.innerHTML ="Variação de umidade: " + variacao.toFixed(1)+"°C";
+                }else {
+                    kpi1Var.innerHTML = variacao.toFixed(1)+"°C";
+                    var4.innerHTML ="Variação de temperatura: " + variacao.toFixed(1)+"°C";
+                }
+
+            })
+        }
+    })
+    
+    
+    fetch (`/kpi/kpi6/${idSensor}`).then(response => {
+        console.log(response);
+    
+        if(response.ok) {
+            response.json().then(data => {
+                var variacao = data[0].umi - data[1].umi;
+
+                if(idSensor == 1){
+                    kpi1VarU.innerHTML = variacao+"%";
+                }else if(idSensor == 2){
+                    kpi1VarU.innerHTML = variacao+"%";
+                }else if(idSensor == 3){
+                    kpi1VarU.innerHTML = variacao+"%";
+                }else {
+                    kpi1VarU.innerHTML = variacao+"%";
+                }
+
+                
+            })
+        }
+    })
 }
+
+
 

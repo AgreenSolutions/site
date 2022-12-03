@@ -72,6 +72,7 @@ body {
     color: black;
     font-size: 18px;
     font-weight: 500;
+    transition: 0.5s;
 }
 .navbar .login {
     border: 1px solid #0f8b2e;
@@ -79,6 +80,7 @@ body {
     padding: 7px 20px;
     border-radius: 5px;
     margin-left: 50px;
+    transition: 0.5s;
 }
 
 .navbar .cadastro {
@@ -87,23 +89,24 @@ body {
     padding: 7px 20px;
     border-radius: 5px;
     margin-left: 0px;
+    transition: 0.5s;
 }
 
 .navbar .link:hover {
     color: green;
-    transition: 0.5s;
+    
 }
 
 .navbar .login:hover{
     background-color: #0f8b2e;
     color: white;
-    transition: 0.5s;
+    
 }
 
 .navbar .cadastro:hover{
     background-color: #0f8b2e;
     color: white;
-    transition: 0.5s;
+    
 }
 
 
@@ -245,12 +248,13 @@ body {
     color: white;
     background-color: #0f8b2e;
     cursor: pointer;
+    transition: 0.5s;
 }
 
 .form button:hover{
     background-color: #b0e9be;
     color: black;
-    transition: 0.5s;
+    
 }
 
 .form img{
