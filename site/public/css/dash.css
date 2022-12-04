@@ -15,6 +15,27 @@ body {
     font-family: 'Barlow', "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   }
 
+ ::-webkit-scrollbar {
+    width: 0.5rem;
+    height: 0;
+  }
+  
+
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+   
+
+  ::-webkit-scrollbar-thumb {
+    background: #0f8b2e; 
+  }
+  
+ 
+  ::-webkit-scrollbar-thumb:hover {
+    background: #b0e9be; 
+  } 
+
+
 .container{
     width: 100vw;
     height: 100vh;
@@ -24,13 +45,8 @@ body {
 }
 
 .container .navbar-vert {
-    /* width: 100px;
-    background-color: #b0e9be;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-    border-bottom: 5px solid #0f8b2e; */
+    
+    width: 100%;
 
     color: #0f8b2e;
     border-bottom: solid 3px #0f8b2e;

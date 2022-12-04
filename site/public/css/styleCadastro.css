@@ -7,9 +7,10 @@
 	vertical-align: baseline;
 }
 html{
-    overflow-y: scroll;
+    overflow: hidden;
     scroll-behavior: smooth;
 }
+
 
 :target {
     scroll-margin-top: .8em;
@@ -47,8 +48,8 @@ body {
 
 .spanSeta {
 	position: absolute;
-	top: 30px;
-	left: 300px;
+	top: 3%;
+	left: 19%;
 	font-size: 60px;
 	color: #000;
 	text-decoration: none;

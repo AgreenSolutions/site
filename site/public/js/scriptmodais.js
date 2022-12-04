@@ -20,6 +20,8 @@ function closeModal() {
   myChart2.style.display = "none";
   myChart3.style.display = "none";
   myChart4.style.display = "none";
+
+
 }
 
 

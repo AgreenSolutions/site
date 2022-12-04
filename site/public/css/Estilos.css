@@ -12,6 +12,25 @@ html{
     overflow-y: scroll;
     scroll-behavior: smooth;
 }
+::-webkit-scrollbar {
+    width: 0.5rem;
+    height: 0;
+  }
+  
+
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+   
+
+  ::-webkit-scrollbar-thumb {
+    background: #0f8b2e; 
+  }
+  
+ 
+  ::-webkit-scrollbar-thumb:hover {
+    background: #b0e9be; 
+  } 
 
 :target {
     scroll-margin-top: 5em;

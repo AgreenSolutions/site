@@ -92,10 +92,10 @@ function kpi(idSensor) {
                     varr.innerHTML ="Variação de temperatura: " + variacao.toFixed(1)+"°C";
                 }else if(idSensor == 2){
                     kpi1Var.innerHTML = variacao.toFixed(1)+"°C";
-                    var2.innerHTML ="Variação de umidade: " + variacao.toFixed(1)+"°C";
+                    var2.innerHTML ="Variação de temperatura: " + variacao.toFixed(1)+"°C";
                 }else if(idSensor == 3){
                     kpi1Var.innerHTML = variacao.toFixed(1)+"°C";
-                    var3.innerHTML ="Variação de umidade: " + variacao.toFixed(1)+"°C";
+                    var3.innerHTML ="Variação de temperatura: " + variacao.toFixed(1)+"°C";
                 }else {
                     kpi1Var.innerHTML = variacao.toFixed(1)+"°C";
                     var4.innerHTML ="Variação de temperatura: " + variacao.toFixed(1)+"°C";

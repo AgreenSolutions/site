@@ -7,7 +7,7 @@
 	vertical-align: baseline;
 }
 html{
-    overflow-y: scroll;
+    overflow: scroll;
     scroll-behavior: smooth;
 }
 
