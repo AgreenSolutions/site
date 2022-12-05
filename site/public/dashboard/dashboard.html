@@ -519,82 +519,100 @@
       alerta: 25,
       emergencia: 26,
       critico: 27,
+      idealFreezer: 3,
+      alertaFreezer: 3.5,
+      emergenciaFreezer: 4,
+      criticoFreezer: 5,
     };
     var limitesTempMin = {
       ideal: 22,
       alerta: 21,
       emergencia: 20,
       critico: 19,
+      idealFreezer: 2,
+      alertaFreezer: 1.5,
+      emergenciaFreezer: -2,
+      criticoFreezer: -4,
     }
     var limitesUmi = {
       ideal: 75,
       alerta: 78,
       emergencia: 79,
       critico: 80,
+      idealFreezer: 92,
+      alertaFreezer: 93,
+      emergenciaFreezer: 94,
+      criticoFreezer: 95,
+
     };
-    var limitesUmiMax = {
+    var limitesUmiMin = {
       ideal: 65,
       alerta: 62,
       emergencia: 61,
       critico: 60,
+      idealFreezer: 90,
+      alertaFreezer: 89,
+      emergenciaFreezer: 88,
+      criticoFreezer: 87,
+
     }
 
     //var classe_temperatura = 'cor-alerta';
     console.log("ANTES DO IF " ,idSensor)
     if(idSensor == 1) {
       console.log("AQUI 3")
-      if (temperatura >= limitesTemp.critico || temperatura <= limitesTempMin.critico) {
+      if (temperatura >= limitesTemp.critico || temperatura <= limitesTempMin.critico || umidade >= limitesUmi.critico || umidade <= limitesTempMin.critico) {
       cir.style.fill = "red";
       console.log("caiu no 1");
-    } else if (temperatura >= limitesTemp.emergencia || temperatura <= limitesTempMin.emergencia) {
+    } else if (temperatura >= limitesTemp.emergencia || temperatura <= limitesTempMin.emergencia || umidade >= limitesUmi.emergencia || umidade <= limitesTempMin.emergencia) {
       cir.style.fill = "orange";
       console.log("caiu no 2");
-    } else if (temperatura >= limitesTemp.alerta || temperatura <= limitesTempMin.alerta) {
+    } else if (temperatura >= limitesTemp.alerta || temperatura <= limitesTempMin.alerta || umidade >= limitesUmi.alerta || umidade <= limitesTempMin.alerta) {
       cir.style.fill = "yellow";
       console.log("caiu no 3");
-    } else if (temperatura <= limitesTemp.ideal || temperatura >= limitesTempMin.ideal) {
+    } else if (temperatura <= limitesTemp.ideal || temperatura >= limitesTempMin.ideal || umidade <= limitesUmi.ideal || umidade >= limitesTempMin.ideal) {
       cir.style.fill = "green";
       console.log("caiu no 4");
     }
     }else if (idSensor == 2) {
       console.log("AQUI 3")
-      if (temperatura >= limitesTemp.critico || temperatura <= limitesTempMin.critico) {
+      if (temperatura >= limitesTemp.criticoFreezer || temperatura <= limitesTempMin.criticoFreezer || umidade >= limitesUmi.criticoFreezer || umidade <= limitesTempMin.criticoFreezer) {
       cir2.style.fill = "red";
       console.log("caiu no 1");
-    } else if (temperatura >= limitesTemp.emergencia || temperatura <= limitesTempMin.emergencia) {
+    } else if (temperatura >= limitesTemp.emergenciaFreezer || temperatura <= limitesTempMin.emergenciaFreezer || umidade >= limitesUmi.emergenciaFreezer || umidade <= limitesTempMin.emergenciaFreezer) {
       cir2.style.fill = "orange";
       console.log("caiu no 2");
-    } else if (temperatura >= limitesTemp.alerta || temperatura <= limitesTempMin.alerta) {
+    } else if (temperatura >= limitesTemp.alertaFreezer || temperatura <= limitesTempMin.alertaFreezer || umidade >= limitesUmi.alertaFreezer || umidade <= limitesTempMin.alertaFreezer) {
       cir2.style.fill = "yellow";
       console.log("caiu no 3");
-    } else if (temperatura <= limitesTemp.ideal || temperatura >= limitesTempMin.ideal) {
+    } else if (temperatura <= limitesTemp.idealFreezer || temperatura >= limitesTempMin.idealFreezer || umidade <= limitesUmi.idealFreezer || umidade >= limitesTempMin.idealFreezer) {
       cir2.style.fill = "green";
       console.log("caiu no 4");
     }}else if(idSensor == 3) {
       console.log("AQUI 3")
-      if (temperatura >= limitesTemp.critico || temperatura <= limitesTempMin.critico) {
+      if (temperatura >= limitesTemp.critico || temperatura <= limitesTempMin.critico || umidade >= limitesUmi.critico || umidade <= limitesTempMin.critico) {
       cir3.style.fill = "red";
       console.log("caiu no 1");
-    } else if (temperatura >= limitesTemp.emergencia || temperatura <= limitesTempMin.emergencia) {
+    } else if (temperatura >= limitesTemp.emergencia || temperatura <= limitesTempMin.emergencia || umidade >= limitesUmi.emergencia || umidade <= limitesTempMin.emergencia) {
       cir3.style.fill = "orange";
       console.log("caiu no 2");
-    } else if (temperatura >= limitesTemp.alerta || temperatura <= limitesTempMin.alerta) {
+    } else if (temperatura >= limitesTemp.alerta || temperatura <= limitesTempMin.alerta || umidade >= limitesUmi.alerta || umidade <= limitesTempMin.alerta) {
       cir3.style.fill = "yellow";
       console.log("caiu no 3");
-    } else if (temperatura <= limitesTemp.ideal || temperatura >= limitesTempMin.ideal) {
+    } else if (temperatura <= limitesTemp.ideal || temperatura >= limitesTempMin.ideal || umidade <= limitesUmi.ideal || umidade >= limitesTempMin.ideal) {
       cir3.style.fill = "green";
       console.log("caiu no 4");
     }}else {
-    if (temperatura >= limitesTemp.critico || temperatura <= limitesTempMin.critico) {
+    if (temperatura >= limitesTemp.criticoFreezer || temperatura <= limitesTempMin.criticoFreezer || umidade >= limitesUmi.criticoFreezer || umidade <= limitesTempMin.criticoFreezer) {
       cir4.style.fill = "red";
       console.log("caiu no 1");
-    } else if (temperatura >= limitesTemp.emergencia || temperatura <= limitesTempMin.emergencia) {
+    } else if (temperatura >= limitesTemp.emergenciaFreezer || temperatura <= limitesTempMin.emergenciaFreezer || umidade >= limitesUmi.emergenciaFreezer || umidade <= limitesTempMin.emergenciaFreezer) {
       cir4.style.fill = "orange";
       console.log("caiu no 2");
-    } else if (temperatura >= limitesTemp.alerta || temperatura <= limitesTempMin.alerta) {
+    } else if ( temperatura >= limitesTemp.alertaFreezer || temperatura <= limitesTempMin.alertaFreezer || umidade >= limitesUmi.alertaFreezer || umidade <= limitesTempMin.alertaFreezer) {
       cir4.style.fill = "yellow";
       console.log("caiu no 3");
-    } else if (temperatura <= limitesTemp.ideal || temperatura >= limitesTempMin.ideal) {
+    } else if (temperatura >= limitesTemp.criticoFreezer || temperatura <= limitesTempMin.criticoFreezer || umidade >= limitesUmi.criticoFreezer || umidade <= limitesTempMin.criticoFreezer) {
       cir4.style.fill = "green";
       console.log("caiu no 4");
     }
