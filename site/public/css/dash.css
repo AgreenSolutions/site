@@ -671,44 +671,45 @@ body {
     justify-content: center;
     align-items: center;
     font-size: larger;
-    font-weight: 700;
+    font-weight: 500;
     margin-top: 40px;
 }
 
 .help {
-    border: 3px solid green;
+    border: 1px solid #0f8b2e;
     border-radius: 5px;
     width: 100px;
     height: 30px;
     display: flex;
     justify-content: center;
-    background-color: #0f8b2e;
-    transition: .8s;
+    background-color: #ffff;
+    transition: .5s;
+    color: #000;
 }
 
 .help:hover,.help li a:hover{
-    background-color: white;
-    color: black;
+    background-color: #0f8b2e;
+    color: #fff;
 }
 
 .help li {
     list-style: none;
     text-decoration: none;
-    color: white;
+    color: #000;
     width: 100%;
-    transition: .8s;
+    transition: .5s;
     /* border: 1px solid black; */
 }
 
 .help li a{
     position:absolute;
-    color: white;
+    color: #000;
     text-decoration: none;
     width: 100px;
     border-radius: 5px;
     height: 30px;
     border-radius: 5px;
     text-align: center;
-    transition: .8s;
+    transition: .5s;
 }
 
