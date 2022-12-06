@@ -61,7 +61,7 @@
 
  <!-- modais de mensagem de erro -->
 
- <div class="modal-container1" id="modalcontainer1">
+ <!-- <div class="modal-container1" id="modalcontainer1">
     <div class="modal1">
         <button onclick="Closeerro1()" class="fechar">X</button>
         <span class="texto"><span class="texto1">Por favor preencha todos os campos!</span>
@@ -108,7 +108,7 @@
         <button onclick="Closeerro7()" class="fechar">X</button>
         <span class="texto">A senha e a confirmação não coincidem!</span>
     </div>
-</div>
+</div> -->
 
 
 
@@ -116,6 +116,7 @@
 
 </body>
 <script src="js/scriptCadastro.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 <script>
     function cadastrar() {
@@ -127,17 +128,6 @@
         var emailVar = inpEmail.value
         var senhaVar = inpSenha.value
         var confirmSenhaVar = confirmSenha.value
-
-        if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmSenhaVar == "") {
-            //cardErro.style.display = "block"
-            modalcontainer1.style.display = 'block';
-
-            //finalizarAguardar();
-            return false;
-        }
-        else {
-            //setInterval(sumirMensagem, 5000)
-        }
 
         // Enviando o valor da nova input
         fetch("/usuarios/cadastrar", {
