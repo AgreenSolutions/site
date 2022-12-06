@@ -84,14 +84,17 @@ function verify() {
   } else if (senha == "") {
     // alert("Digite sua senha.");
     // modalcontainer5.style.display = 'block';
+    swal('Campo senha vazio!','Por favor digite sua senha','warning')
 
   } else if (confirmacao == "") {
     // alert("Não se esqueça de confirmar sua senha.");
     // modalcontainer6.style.display = 'block';
+    swal('Campo confirmação vazio!','Por favor confirme sua senha','warning')
 
   } else if (senha != confirmacao) {
     // alert("A senha e a confirmação não coincidem!");
     // modalcontainer7.style.display = 'block';
+    swal('Senhas não coincidem!','Por favor digite a mesma senha nos dois campos','warning')
   } else {
     campos_validos = "yes";
   }

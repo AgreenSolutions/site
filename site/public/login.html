@@ -33,7 +33,7 @@
 
         <img src="./assets/icon/eye.png" alt="Olho senha" class="btn">
         </div>
-        <button onclick="entrar()"><a>Logar</a></button>
+        <button onclick="verify()"><a>Logar</a></button>
         <span>Não tem uma conta?</span><a class="cad-a" href="cadastro.html"> Cadastre-se</a>
     </div>
 </div>
@@ -63,6 +63,7 @@
 </div> -->
 
 <script src="js/scriptLogin.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 <script>
     function entrar() {
@@ -70,17 +71,19 @@
 
        var emailVar = inpEmail.value
        var senhaVar = inpSenha.value
+       
 
        if (emailVar == "" || senhaVar == "") {
            //cardErro.style.display = "block"
            //alert("Verifique se os campos estão preenchidos")
            //modalcontainer1.style.display = 'block';
+           swal("Verifique se os campos estão preenchidos", "", "error");
            //finalizarAguardar();
            return false;
-       }
-       else {
+        }
+        else {
            //setInterval(sumirMensagem, 5000)
-       }
+        }
 
        console.log("FORM LOGIN: ", emailVar);
        console.log("FORM SENHA: ", senhaVar);
@@ -111,6 +114,7 @@
                    setTimeout(function () {
                         // alert("Login realizado com sucesso!");
                        // modalcontainer2.style.display = 'block';
+                       swal("Login realizado com sucesso!")
                        window.location = "./dashboard/dashboard.html";
                    }, 500); // apenas para exibir o loading
 

@@ -9,11 +9,19 @@ function calc() {
     var lucro10 = total * 10
    
 
-    if (qtdAlface <= 0) {
-        alert(`Insira um valor maior que 0.`)   
-    } else if (isNaN(qtdAlface)) {
-        alert(`Insira um valor válido!`)
-    } else {
+   
+    if (valorAlface == "") {
+        swal("Escolha um tipo de alface!","","warning")
+    }
+    else if (qtdAlface <= 0) {
+        // alert(`Insira um valor maior que 0.`)   
+        swal("Insira um valor maior que 0.","","warning")
+    } 
+    else if (isNaN(qtdAlface)) {
+        // alert(`Insira um valor válido!`)
+        swal("Insira um valor válido!","","warning")
+    } 
+    else {
         p_msg.innerHTML = "O lucro sem a nossa solução é de: R$ " + totalPreju.toFixed(2) + "<br>";
         p_msg.innerHTML += "Com a nossa solução você passa a lucrar (+19%): R$ " + total.toFixed(2) + "<br>";
         p_msg.innerHTML += `Após três(3) encomendas com a nossa solução seu lucro passa a ser de R$${lucro3.toFixed(2)} <br>`

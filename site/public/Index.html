@@ -8,7 +8,7 @@
     <title>AGREEN</title>
     <link rel="icon" href="./assets/imgs/Agreen.png">
     <link rel="stylesheet" href="css/Estilos.css">
-
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 
 <body id="Home">
@@ -128,7 +128,7 @@
                 <div class="cInt">
                     <a href="https://github.com/orgs/AgreenSolutions/people/gabrielfernando23" target="_blank"><img src="https://avatars.githubusercontent.com/u/111136785?v=4" alt="Foto de perfil"></a>
                     <h2>Gabriel</h2>
-                    <h6>Desenvolvedor</h6>
+                    <h6>Desenvolvedor Back-End</h6>
                 </div>
 
                 <div class="cInt">
@@ -187,6 +187,28 @@
         var email_contato = ipt_email.value
         var telefone = ipt_telefone.value
         var mensagem = ipt_mensagem.value
+        if (nome_contato == '' && email_contato == '' && telefone == '' && mensagem == ''){
+            swal("Preencha todos os campos!","","warning")
+        }
+        else if (nome_contato == ''){
+            swal("Preencha o seu nome!","","warning")
+        }
+        else if(email_contato == ""){
+            swal("Preencha o seu email!","","warning")
+        }
+        else if (!email_contato.includes("@") || !email_contato.includes(".")|| !email_contato.includes("@") && !email_contato.includes(".")) {
+            swal('email inválido','Digite um email válido!','error');
+        }
+        else if (telefone == ''){
+            swal("Preencha o seu telefone!","","warning")
+        }
+        else if (isNaN(telefone) || telefone.length <= 8) {
+            swal("Digite um telefone válido!","","warning")
+        }
+        else if (mensagem == ''){
+            swal("Você não digitou sua mensagem","","warning")
+        }
+        else{
 
         fetch("/usuarios/contatos", {
             method: "POST",
@@ -207,7 +229,8 @@
             console.log("resposta: ", resposta);
 
             if (resposta.ok) {
-                alert("Mensagem enviada com sucesso!")
+                // alert("Mensagem enviada com sucesso!"
+                swal("Mensagem enviada com sucesso!","Nossa equipe entrará em contato","success")
             } else {
                 alert("Erro ao enviar mensagem!")
             }
@@ -219,6 +242,6 @@
         });
 
         return false;
-    }
+    }}
 
 </script>
