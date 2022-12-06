@@ -114,13 +114,13 @@ function kpi(idSensor) {
                 var variacao = data[0].umi - data[1].umi;
 
                 if(idSensor == 1){
-                    kpi1VarU.innerHTML = variacao+"%";
+                    kpi1VarU.innerHTML = variacao.toFixed(1)+"%";
                 }else if(idSensor == 2){
-                    kpi1VarU.innerHTML = variacao+"%";
+                    kpi1VarU.innerHTML = variacao.toFixed(1)+"%";
                 }else if(idSensor == 3){
-                    kpi1VarU.innerHTML = variacao+"%";
+                    kpi1VarU.innerHTML = variacao.toFixed(1)+"%";
                 }else {
-                    kpi1VarU.innerHTML = variacao+"%";
+                    kpi1VarU.innerHTML = variacao.toFixed(1)+"%";
                 }
 
                 

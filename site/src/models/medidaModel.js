@@ -12,7 +12,7 @@ function buscarUltimasMedidas(idSensor, limite_linhas) {
                         FORMAT(data_horario, 'HH:mm:ss') as momento_grafico
                     from leitura
                     where fkSensor = ${idSensor}
-                    order by id desc`;
+                    order by idLeitura desc`;
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
         instrucaoSql = `select temperatura, umidade,data_horario,DATE_FORMAT(data_horario,'%H:%i:%s') as momento_grafico
                     from leitura

@@ -74,7 +74,7 @@
        if (emailVar == "" || senhaVar == "") {
            //cardErro.style.display = "block"
            //alert("Verifique se os campos estão preenchidos")
-           modalcontainer1.style.display = 'block';
+           //modalcontainer1.style.display = 'block';
            //finalizarAguardar();
            return false;
        }
@@ -110,15 +110,15 @@
 
                    setTimeout(function () {
                         // alert("Login realizado com sucesso!");
-                        modalcontainer2.style.display = 'block';
+                       // modalcontainer2.style.display = 'block';
                        window.location = "./dashboard/dashboard.html";
-                   }, 1000); // apenas para exibir o loading
+                   }, 500); // apenas para exibir o loading
 
                });
 
            } else {
                 // alert("Senha ou email incorretos!");
-                modalcontainer3.style.display = 'block';
+               // modalcontainer3.style.display = 'block';
                 inpEmail.style.borderColor = "red";
                 inpSenha.style.borderColor = "red";
                 inpSenha.style.transition = "1s";

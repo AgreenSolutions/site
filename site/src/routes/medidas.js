@@ -4,6 +4,7 @@ var router = express.Router();
 var medidaController = require("../controllers/medidaController");
 
 router.get("/ultimas/:idSensor", function (req, res) {
+    console.log("AAAAAAAAAAAAAAAAAAA")
     medidaController.buscarUltimasMedidas(req, res);
 });
 

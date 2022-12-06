@@ -7,12 +7,13 @@
     <link rel="stylesheet" href="../css/dash.css" />
     <link rel="icon" href="../assets/imgs/Agreen_-_White_with_Black.png" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-annotation/2.0.1/chartjs-plugin-annotation.min.js"
-      integrity="sha512-LZEOcU8s74hwWva82MJux7GgFNjfeExXG9yZPQrKz567Od4O2D/6UX3oGoZiRDOdbMtH33NBq7vonH4VOUPA/Q=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    
+   
+
     <script src="../js/funcoes.js"></script>
     <script src="../js/kpi.js"></script>
 
@@ -26,27 +27,27 @@
         <div class="kpi">
           <div class="kpi-1">
             <div class="kpi-title">Maior Temperatura nos últimos 7 dias</div>
-            <div class="kpi-data" id="kpi1Max">24.7°C</div>
+            <div class="kpi-data" id="kpi1Max"></div>
           </div>
           <div class="kpi-1">
             <div class="kpi-title">Maior Umidade nos últimos 7 dias</div>
-            <div class="kpi-data" id="kpi1MaxU">72%</div>
+            <div class="kpi-data" id="kpi1MaxU"></div>
           </div>
           <div class="kpi-1">
             <div class="kpi-title">Menor Temperatura nos últimos 7 dias</div>
-            <div class="kpi-data" id="kpi1Min">20°C</div>
+            <div class="kpi-data" id="kpi1Min"></div>
           </div>
           <div class="kpi-1">
             <div class="kpi-title">Menor Umidade nos últimos 7 dias</div>
-            <div class="kpi-data" id="kpi1MinU">64.4%</div>
+            <div class="kpi-data" id="kpi1MinU"></div>
           </div>
           <div class="kpi-1">
             <div class="kpi-title2">Variação Temperatura ultima 1 Hora</div>
-            <div class="kpi-data" id="kpi1Var">1.4°C</div>
+            <div class="kpi-data" id="kpi1Var"></div>
           </div>
           <div class="kpi-1">
             <div class="kpi-title2">Variação Umidade ultima 1 Hora</div>
-            <div class="kpi-data" id="kpi1VarU">2%</div>
+            <div class="kpi-data" id="kpi1VarU"></div>
           </div>
         </div>
         <div class="graficos">
@@ -313,9 +314,9 @@
           <p class="card-title">Gôndola 1</p>
 
           <span class="card-span" id="temp"
-            >Ultima captura (temperatura): 24.7&deg;</span
+            ></span
           >
-          <span class="card-span" id="umi">Ultima captura (umidade): 72%</span>
+          <span class="card-span" id="umi"></span>
           <span class="card-span" id="varr"></span>
 
           <button class="btn-card" onclick="openModal(1)">Ver Gráficos</button>
@@ -337,11 +338,11 @@
           <p class="card-title">Freezer 1</p>
 
           <span class="card-span" id="temp2"
-            >Ultima captura (temperatura): 5&deg;</span
+            ></span
           >
-          <span class="card-span" id="umi2">Ultima captura (umidade): 60%</span>
+          <span class="card-span" id="umi2"></span>
           <span class="card-span" id="var2"
-            >Variação de temperatura: 0&deg;</span
+            ></span
           >
 
           <button class="btn-card" onclick="openModal(2)">Ver Gráficos</button>
@@ -363,11 +364,11 @@
           <p class="card-title">Gôndola 2</p>
 
           <span class="card-span" id="temp3"
-            >Ultima captura (temperatura): 20&deg;</span
+            ></span
           >
-          <span class="card-span" id="umi3">Ultima captura (umidade): 78%</span>
+          <span class="card-span" id="umi3"></span>
           <span class="card-span" id="var3"
-            >Variação de temperatura: 1&deg;</span
+            ></span
           >
 
           <button class="btn-card" onclick="openModal(3)">Ver Gráficos</button>
@@ -399,11 +400,11 @@
           <p class="card-title">Freezer 2</p>
 
           <span class="card-span" id="temp4"
-            >Ultima captura (temperatura): 2.5&deg;</span
+            ></span
           >
-          <span class="card-span" id="umi4">Ultima captura (umidade): 90%</span>
+          <span class="card-span" id="umi4"></span>
           <span class="card-span" id="var4"
-            >Variação de temperatura: 0,4&deg;</span
+            ></span
           >
 
           <button class="btn-card" onclick="openModal(4)">Ver Gráficos</button>
@@ -460,7 +461,7 @@
   window.onload = kpi(4)
   function atualizacaoPeriodica() {
           obterdados(1);
-          obterdados(2)
+          obterdados(2);
           obterdados(3);
           obterdados(4);
         
@@ -479,8 +480,11 @@
 
   function obterdados(idSensor) {
     fetch(`/medidas/tempo-real/${idSensor}`)
+    
       .then((response) => {
+        console.log("TEMPO REAL ",response)
         if (response.ok) {
+          
           response.json().then((response) => {
             console.log(`Dados recebidos: ${JSON.stringify(response)}`);
             console.log("AQUI BOY")
@@ -662,15 +666,16 @@
   //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
   //     Para ajustar o "select", ajuste o comando sql em src/models
   function obterDadosGrafico(idSensor) {
+    
     // alterarTitulo(idSensor)
    
     if (proximaAtualizacao != undefined) {
       clearTimeout(proximaAtualizacao);
     }
 
-    fetch(`/medidas/ultimas/${idSensor}`)
+    fetch(`/medidas/ultimas/${idSensor}`, {cache: 'no-store'})
       .then(function (response) {
-        
+        console.log("ME AJUDA ",response);
         if (response.ok) {
           response.json().then(response => {
             console.log(`Dados recebidos: ${JSON.stringify(response)}`);
@@ -778,10 +783,10 @@
             console.log(dados);
 
             // document.getElementById("avisoCaptura").innerHTML = ""
-            console.log("NOVO REGISTRO ", novoRegistro[0].data_horario);
+            console.log("NOVO REGISTRO ", novoRegistro[0].momento_grafico);
 
             if (
-              novoRegistro[0].data_horario ==
+              novoRegistro[0].momento_grafico ==
               dados.labels[dados.labels.length - 1]
             ) {
               console.log("IF");
@@ -793,7 +798,7 @@
               );
               // document.getElementById("avisoCaptura").innerHTML = "<i class='fa-solid fa-triangle-exclamation'></i> Foi trazido o dado mais atual capturado pelo sensor. <br> Como não há dados novos a exibir, o gráfico não atualizará."
               console.log("Horário do novo dado capturado:");
-              console.log(novoRegistro[0].data_horario);
+              console.log(novoRegistro[0].momento_grafico);
               console.log("Horário do último dado capturado:");
               console.log(dados.labels[dados.labels.length - 1]);
               console.log(
@@ -809,7 +814,7 @@
               );
               // tirando e colocando valores no gráfico
               dados.labels.shift(); // apagar o primeiro
-              dados.labels.push(novoRegistro[0].data_horario); // incluir um novo momento
+              dados.labels.push(novoRegistro[0].momento_grafico); // incluir um novo momento
 
               dados.datasets[0].data.shift(); // apagar o primeiro de umidade
               dados.datasets[0].data.push(novoRegistro[0].umidade); // incluir uma nova medida de umidade
