@@ -8,10 +8,10 @@ function buscarUltimasMedidas(idSensor, limite_linhas) {
         instrucaoSql = `select top ${limite_linhas}
         temperatura as temperatura, 
         umidade as umidade,  
-                        momento,
-                        FORMAT(momento, 'HH:mm:ss') as momento_grafico
+                        data_horario,
+                        FORMAT(data_horario, 'HH:mm:ss') as momento_grafico
                     from leitura
-                    where fk_aquario = ${idAquario}
+                    where fkSensor = ${idSensor}
                     order by id desc`;
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
         instrucaoSql = `select temperatura, umidade,data_horario,DATE_FORMAT(data_horario,'%H:%i:%s') as momento_grafico
@@ -33,11 +33,11 @@ function buscarMedidasEmTempoReal(idSensor) {
 
     if (process.env.AMBIENTE_PROCESSO == "producao") {
         instrucaoSql = `select top 1
-        dht11_temperatura as temperatura, 
-        dht11_umidade as umidade,  
-                        CONVERT(varchar, momento, 108) as momento_grafico, 
-                        fk_aquario 
-                        from leitura where fk_aquario = ${idAquario} 
+        temperatura as temperatura, 
+        umidade as umidade,  
+                        CONVERT(varchar, data_horario, 108) as momento_grafico, 
+                        fkSensor
+                        from leitura where fkSensor = ${idSensor} 
                     order by idLeitura desc`;
 
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {

@@ -33,8 +33,8 @@ primary key (idEndereco, fkempresa)
 );
  
 create table sensor (
-idSensor int,
 fkEmpresa int,
+idSensor int,
 foreign key (fkEmpresa)
 references empresa (idEmpresa),
 atividade varchar (45),

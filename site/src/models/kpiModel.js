@@ -27,13 +27,13 @@ function buscarKpi4(idSensor) {
     return database.executar(instrucao);
 }
 function buscarKpi5(idSensor) {
-    var instrucao = `select leitura.temperatura as temp from leitura where leitura.fksensor = ${idSensor} order by data_horario DESC limit 2;`
+    var instrucao = `select top 2 leitura.temperatura as temp from leitura where leitura.fksensor = ${idSensor} order by data_horario DESC;`
 
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
 function buscarKpi6(idSensor) {
-    var instrucao = `select leitura.umidade as umi from leitura where leitura.fksensor = ${idSensor} order by data_horario DESC limit 2;`
+    var instrucao = `select top 2 leitura.umidade as umi from leitura where leitura.fksensor = ${idSensor} order by data_horario DESC;`
 
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);

@@ -462,6 +462,7 @@
           obterdados(1);
           obterdados(2)
           obterdados(3);
+          obterdados(4);
         
 
       //     function sendData() {
@@ -662,13 +663,14 @@
   //     Para ajustar o "select", ajuste o comando sql em src/models
   function obterDadosGrafico(idSensor) {
     // alterarTitulo(idSensor)
-
+   
     if (proximaAtualizacao != undefined) {
       clearTimeout(proximaAtualizacao);
     }
 
-    fetch(`/medidas/ultimas/${idSensor}`, { cache: "no-store" })
+    fetch(`/medidas/ultimas/${idSensor}`)
       .then(function (response) {
+        
         if (response.ok) {
           response.json().then(response => {
             console.log(`Dados recebidos: ${JSON.stringify(response)}`);
