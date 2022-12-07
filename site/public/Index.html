@@ -202,7 +202,7 @@
         else if (telefone == ''){
             swal("Preencha o seu telefone!","","warning")
         }
-        else if (isNaN(telefone) || telefone.length <= 8) {
+        else if (isNaN(telefone) || telefone.length < 8) {
             swal("Digite um telefone válido!","","warning")
         }
         else if (mensagem == ''){
@@ -227,15 +227,13 @@
         }).then(function (resposta) {
 
             console.log("resposta: ", resposta);
-
             if (resposta.ok) {
                 // alert("Mensagem enviada com sucesso!"
                 swal("Mensagem enviada com sucesso!","Nossa equipe entrará em contato","success")
             } else {
-                alert("Erro ao enviar mensagem!")
+                // alert("Erro ao enviar mensagem!")
+                swal("Erro ao enviar mensagem!","","error")
             }
-
-
         }).catch(function (resposta) {
             console.log(`#ERRO: ${resposta}`);
             //finalizarAguardar();

@@ -62,8 +62,8 @@
     </div>
 </div> -->
 
-<script src="js/scriptLogin.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="js/scriptLogin.js"></script>
 
 <script>
     function entrar() {
@@ -74,10 +74,10 @@
        
 
        if (emailVar == "" || senhaVar == "") {
+           swal("Verifique se os campos estão preenchidos", "", "error");
            //cardErro.style.display = "block"
            //alert("Verifique se os campos estão preenchidos")
            //modalcontainer1.style.display = 'block';
-           swal("Verifique se os campos estão preenchidos", "", "error");
            //finalizarAguardar();
            return false;
         }
