@@ -139,6 +139,7 @@ function contato(req, res) {
         usuarioModel.contato(nome, email, telefone,mensagem)
         .then(
             function (resultado) {
+                res.json(resultado)
                 console.log(resultado);
 
             }
@@ -146,7 +147,7 @@ function contato(req, res) {
             function (erro) {
                 console.log(erro);
                 console.log(
-                    "\nHouve um erro ao realizar o cadastro! Erro: ",
+                    "\nHouve um erro ao realizar o contato! Erro: ",
                     erro.sqlMessage
                 );
                 res.status(500).json(erro.sqlMessage);

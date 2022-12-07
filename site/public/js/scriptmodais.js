@@ -20,6 +20,13 @@ function closeModal() {
   myChart2.style.display = "none";
   myChart3.style.display = "none";
   myChart4.style.display = "none";
+  kpi1Max.innerHTML = "";
+  kpi1MaxU.innerHTML = "";
+  kpi1Min.innerHTML = "";
+  kpi1MinU.innerHTML = "";
+  kpi1Var.innerHTML = "";
+  kpi1VarU.innerHTML = "";
+
 
 
 }
