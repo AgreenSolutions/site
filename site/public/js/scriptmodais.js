@@ -11,6 +11,7 @@ function openModal(idSensor) {
   }else {
     myChart4.style.display = "flex";
   }
+  console.log("AI VEINHO")
   kpi(idSensor)
 }
 
