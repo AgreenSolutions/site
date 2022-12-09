@@ -726,3 +726,24 @@ body {
     transition: .5s;
 }
 
+/* Manual de Instalção */
+
+.btn_manual {
+    cursor: pointer; 
+    width: 100px;
+    height: 24px;
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+}
+
+/* Botão Sair */
+
+.btn_sair {
+    cursor: pointer;
+    width: 100px;
+    height: 24px;
+    font-size: 10px;
+    display: flex;
+    justify-content: center;
+}
